@@ -2,6 +2,7 @@
 using IEA_ErpProject.BilgiGiris.Firmalar;
 using IEA_ErpProject.BilgiGiris.Hastaneler;
 using IEA_ErpProject.BilgiGiris.Personeller;
+using IEA_ErpProject.UrunBilgiGiris.Urunler;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -129,6 +130,18 @@ namespace IEA_ErpProject
             else if (isim =="Personel Bilgi Giriş" && Application.OpenForms["PersonelGiris"] == null)
             {
                 PersonelGiris frm = new PersonelGiris();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim =="Ürünler Listesi" && Application.OpenForms["UrunlerListesi"] == null)
+            {
+                UrunlerListesi frm = new UrunlerListesi();
+                frm.MdiParent= Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Ürün Bilgi Giriş" && Application.OpenForms["UrunGiris"] == null)
+            {
+                UrunGiris frm = new UrunGiris();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }
