@@ -1,4 +1,7 @@
-﻿using IEA_ErpProject.BilgiGiris.Hastaneler;
+﻿using IEA_ErpProject.BilgiGiris.Doktorlar;
+using IEA_ErpProject.BilgiGiris.Firmalar;
+using IEA_ErpProject.BilgiGiris.Hastaneler;
+using IEA_ErpProject.BilgiGiris.Personeller;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -90,6 +93,42 @@ namespace IEA_ErpProject
             else if (isim == "Hastane Bilgi Giriş" && Application.OpenForms["HastaneGiris"] == null)
             {
                 HastaneGiris frm = new HastaneGiris();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim =="Doktorlar Listesi" && Application.OpenForms["DoktorlarListesi"]== null)
+            {
+                DoktorlarListesi frm = new DoktorlarListesi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim =="Doktor Bilgi Giriş" && Application.OpenForms["DoktorGiris"]== null)
+            {
+                DoktorGiris frm = new DoktorGiris();
+                frm.MdiParent= Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim =="Firmalar Listesi" && Application.OpenForms["FirmalarListesi"] == null)
+            {
+                FirmalarListesi frm = new FirmalarListesi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if(isim =="Firma Bilgi Giriş" && Application.OpenForms["FirmaGiris"] == null)
+            {
+                FirmaGiris frm = new FirmaGiris();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim =="Personeller  Listesi" && Application.OpenForms["PersonellerListesi"] == null)
+            {
+                PersonellerListesi frm = new PersonellerListesi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim =="Personel Bilgi Giriş" && Application.OpenForms["PersonelGiris"] == null)
+            {
+                PersonelGiris frm = new PersonelGiris();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }

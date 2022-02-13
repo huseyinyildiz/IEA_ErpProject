@@ -52,6 +52,30 @@
     <Compile Include="AnaSayfa.Designer.cs">
       <DependentUpon>AnaSayfa.cs</DependentUpon>
     </Compile>
+    <Compile Include="BilgiGiris\Doktorlar\DoktorGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGiris\Doktorlar\DoktorGiris.Designer.cs">
+      <DependentUpon>DoktorGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGiris\Doktorlar\DoktorlarListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGiris\Doktorlar\DoktorlarListesi.Designer.cs">
+      <DependentUpon>DoktorlarListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGiris\Firmalar\FirmaGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGiris\Firmalar\FirmaGiris.Designer.cs">
+      <DependentUpon>FirmaGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGiris\Firmalar\FirmalarListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGiris\Firmalar\FirmalarListesi.Designer.cs">
+      <DependentUpon>FirmalarListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="BilgiGiris\Hastaneler\HastaneGiris.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,16 +88,46 @@
     <Compile Include="BilgiGiris\Hastaneler\HastanelerListesi.Designer.cs">
       <DependentUpon>HastanelerListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="BilgiGiris\Personeller\PersonelGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGiris\Personeller\PersonelGiris.Designer.cs">
+      <DependentUpon>PersonelGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGiris\Personeller\PersonellerListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGiris\Personeller\PersonellerListesi.Designer.cs">
+      <DependentUpon>PersonellerListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AnaSayfa.resx">
       <DependentUpon>AnaSayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGiris\Doktorlar\DoktorGiris.resx">
+      <DependentUpon>DoktorGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGiris\Doktorlar\DoktorlarListesi.resx">
+      <DependentUpon>DoktorlarListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGiris\Firmalar\FirmaGiris.resx">
+      <DependentUpon>FirmaGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGiris\Firmalar\FirmalarListesi.resx">
+      <DependentUpon>FirmalarListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGiris\Hastaneler\HastaneGiris.resx">
       <DependentUpon>HastaneGiris.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGiris\Hastaneler\HastanelerListesi.resx">
       <DependentUpon>HastanelerListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGiris\Personeller\PersonelGiris.resx">
+      <DependentUpon>PersonelGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGiris\Personeller\PersonellerListesi.resx">
+      <DependentUpon>PersonellerListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -105,9 +159,6 @@
     <None Include="res\RightLeft2Red.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BilgiGiris\Doktorlar\" />
-    <Folder Include="BilgiGiris\Firmalar\" />
-    <Folder Include="BilgiGiris\Personeller\" />
     <Folder Include="Fonksiyonlar\" />
   </ItemGroup>
   <ItemGroup>
