@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f71e9d9f98a447ed807b8cad3b049d8d" Name="Diagram1">
+        <EntityTypeShape EntityType="ErpPro102SModel.Sehirler" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpPro102SModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpPro102SModel.tblHastaneler" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpPro102SModel.tblHastaneTipleri" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblHastaneler_Sehirler" ManuallyRouted="false" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblHastaneler_tblHastaneTipleri" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

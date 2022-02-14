@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -100,6 +109,39 @@
     <Compile Include="BilgiGiris\Personeller\PersonellerListesi.Designer.cs">
       <DependentUpon>PersonellerListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entity\ErpProModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpProModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ErpProModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ErpProModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpProModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Sehirler.cs">
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sp_helpdiagrams_Result.cs">
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sysdiagrams.cs">
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblHastaneler.cs">
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblHastaneTipleri.cs">
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UrunBilgiGiris\Urunler\UrunGiris.cs">
@@ -157,6 +199,14 @@
     <EmbeddedResource Include="UrunBilgiGiris\Urunler\UrunlerListesi.resx">
       <DependentUpon>UrunlerListesi.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="Entity\ErpProModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ErpProModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity\ErpProModel.edmx.diagram">
+      <DependentUpon>ErpProModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -180,7 +230,25 @@
     <Folder Include="Fonksiyonlar\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Entity\ErpProModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ErpProModel.Context.cs</LastGenOutput>
+      <DependentUpon>ErpProModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entity\ErpProModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ErpProModel.edmx</DependentUpon>
+      <LastGenOutput>ErpProModel.cs</LastGenOutput>
+    </Content>
     <Content Include="ReadMe.txt" />
+    <None Include="res\exit-64.png" />
+    <None Include="res\png-transparent-dustpan-computer-icons-iconfinder-clear-miscellaneous-angle-photography.png" />
+    <None Include="res\cop24x24.png" />
+    <None Include="res\Update32x32.png" />
+    <None Include="res\Save-icon64x64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

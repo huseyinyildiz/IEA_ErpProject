@@ -118,10 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Ara32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\Ara32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Save-icon64x64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\Save-icon64x64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Update32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\Update32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RightLeft2Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\RightLeft2Red.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cop24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\cop24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="png-transparent-dustpan-computer-icons-iconfinder-clear-miscellaneous-angle-photography" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\png-transparent-dustpan-computer-icons-iconfinder-clear-miscellaneous-angle-photography.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ara32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\Ara32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exit-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\exit-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
