@@ -12,22 +12,19 @@ namespace IEA_ErpProject.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Sehirler
+    public partial class tblDepartmanlar
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sehirler()
+        public tblDepartmanlar()
         {
-            this.tblHastaneler = new HashSet<tblHastaneler>();
-            this.tblDoktorlar = new HashSet<tblDoktorlar>();
+            this.tblDetaylar = new HashSet<tblDetaylar>();
         }
     
         public int Id { get; set; }
-        public string Code { get; set; }
-        public string Name { get; set; }
+        public string DepartmanKodu { get; set; }
+        public string Adi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblHastaneler> tblHastaneler { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblDoktorlar> tblDoktorlar { get; set; }
+        public virtual ICollection<tblDetaylar> tblDetaylar { get; set; }
     }
 }

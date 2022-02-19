@@ -11,6 +11,15 @@
         <EntityTypeShape EntityType="ErpPro102SModel.tblHastaneTipleri" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="ErpPro102SModel.FK_tblHastaneler_Sehirler" ManuallyRouted="false" />
         <AssociationConnector Association="ErpPro102SModel.FK_tblHastaneler_tblHastaneTipleri" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ErpPro102SModel.tblDepartmanlar" Width="1.5" PointX="3" PointY="5.75" />
+        <EntityTypeShape EntityType="ErpPro102SModel.tblDetaylar" Width="1.5" PointX="5.25" PointY="4.25" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblDetaylar_tblDepartmanlar" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblDetaylar_tblHastaneler" />
+        <EntityTypeShape EntityType="ErpPro102SModel.tblDoktorlar" Width="1.5" PointX="5.25" PointY="8" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler1" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler2" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler3" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblDoktorlar_Sehirler" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

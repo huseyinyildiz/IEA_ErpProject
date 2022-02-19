@@ -30,6 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.ScHastane = new System.Windows.Forms.SplitContainer();
+            this.BtnDetayEkle = new System.Windows.Forms.Button();
+            this.TxtHastaneBul = new System.Windows.Forms.TextBox();
             this.TxtVergiNo = new System.Windows.Forms.MaskedTextBox();
             this.txtTelefon = new System.Windows.Forms.MaskedTextBox();
             this.TxtAdres = new System.Windows.Forms.RichTextBox();
@@ -46,21 +48,24 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnKapat = new System.Windows.Forms.Button();
+            this.Liste = new System.Windows.Forms.DataGridView();
+            this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Adi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sehir = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnKaydet = new System.Windows.Forms.Button();
             this.btnGuncelle = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
             this.btnTemizle = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sehir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnKapat = new System.Windows.Forms.Button();
+            this.BtnDetayGoster = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ScHastane)).BeginInit();
             this.ScHastane.Panel1.SuspendLayout();
             this.ScHastane.Panel2.SuspendLayout();
             this.ScHastane.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -85,6 +90,9 @@
             // 
             // ScHastane.Panel1
             // 
+            this.ScHastane.Panel1.Controls.Add(this.BtnDetayGoster);
+            this.ScHastane.Panel1.Controls.Add(this.BtnDetayEkle);
+            this.ScHastane.Panel1.Controls.Add(this.TxtHastaneBul);
             this.ScHastane.Panel1.Controls.Add(this.TxtVergiNo);
             this.ScHastane.Panel1.Controls.Add(this.txtTelefon);
             this.ScHastane.Panel1.Controls.Add(this.TxtAdres);
@@ -104,14 +112,38 @@
             // 
             // ScHastane.Panel2
             // 
-            this.ScHastane.Panel2.Controls.Add(this.dataGridView1);
+            this.ScHastane.Panel2.Controls.Add(this.Liste);
             this.ScHastane.Size = new System.Drawing.Size(1320, 580);
             this.ScHastane.SplitterDistance = 440;
+            this.ScHastane.SplitterWidth = 5;
             this.ScHastane.TabIndex = 2;
+            // 
+            // BtnDetayEkle
+            // 
+            this.BtnDetayEkle.BackColor = System.Drawing.Color.SteelBlue;
+            this.BtnDetayEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnDetayEkle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnDetayEkle.Location = new System.Drawing.Point(1113, 360);
+            this.BtnDetayEkle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnDetayEkle.Name = "BtnDetayEkle";
+            this.BtnDetayEkle.Size = new System.Drawing.Size(194, 60);
+            this.BtnDetayEkle.TabIndex = 17;
+            this.BtnDetayEkle.Text = "Detay Ekle";
+            this.BtnDetayEkle.UseVisualStyleBackColor = false;
+            this.BtnDetayEkle.Visible = false;
+            this.BtnDetayEkle.Click += new System.EventHandler(this.BtnDetayEkle_Click);
+            // 
+            // TxtHastaneBul
+            // 
+            this.TxtHastaneBul.Location = new System.Drawing.Point(1072, 0);
+            this.TxtHastaneBul.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TxtHastaneBul.Name = "TxtHastaneBul";
+            this.TxtHastaneBul.Size = new System.Drawing.Size(244, 26);
+            this.TxtHastaneBul.TabIndex = 16;
             // 
             // TxtVergiNo
             // 
-            this.TxtVergiNo.Location = new System.Drawing.Point(971, 155);
+            this.TxtVergiNo.Location = new System.Drawing.Point(970, 155);
             this.TxtVergiNo.Mask = "00000000000";
             this.TxtVergiNo.Name = "TxtVergiNo";
             this.TxtVergiNo.Size = new System.Drawing.Size(106, 26);
@@ -127,7 +159,7 @@
             // 
             // TxtAdres
             // 
-            this.TxtAdres.Location = new System.Drawing.Point(153, 279);
+            this.TxtAdres.Location = new System.Drawing.Point(153, 278);
             this.TxtAdres.Name = "TxtAdres";
             this.TxtAdres.Size = new System.Drawing.Size(259, 96);
             this.TxtAdres.TabIndex = 13;
@@ -139,7 +171,7 @@
             this.TxtSehir.FormattingEnabled = true;
             this.TxtSehir.Location = new System.Drawing.Point(612, 82);
             this.TxtSehir.Name = "TxtSehir";
-            this.TxtSehir.Size = new System.Drawing.Size(161, 28);
+            this.TxtSehir.Size = new System.Drawing.Size(162, 28);
             this.TxtSehir.TabIndex = 12;
             // 
             // TxtTipAdi
@@ -148,12 +180,12 @@
             this.TxtTipAdi.FormattingEnabled = true;
             this.TxtTipAdi.Location = new System.Drawing.Point(153, 211);
             this.TxtTipAdi.Name = "TxtTipAdi";
-            this.TxtTipAdi.Size = new System.Drawing.Size(207, 28);
+            this.TxtTipAdi.Size = new System.Drawing.Size(206, 28);
             this.TxtTipAdi.TabIndex = 11;
             // 
             // txtVergiDairesi
             // 
-            this.txtVergiDairesi.Location = new System.Drawing.Point(971, 79);
+            this.txtVergiDairesi.Location = new System.Drawing.Point(970, 78);
             this.txtVergiDairesi.Name = "txtVergiDairesi";
             this.txtVergiDairesi.Size = new System.Drawing.Size(154, 26);
             this.txtVergiDairesi.TabIndex = 10;
@@ -175,7 +207,7 @@
             // label9
             // 
             this.label9.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label9.Location = new System.Drawing.Point(12, 204);
+            this.label9.Location = new System.Drawing.Point(12, 205);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 40);
             this.label9.TabIndex = 7;
@@ -195,7 +227,7 @@
             // label7
             // 
             this.label7.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label7.Location = new System.Drawing.Point(12, 141);
+            this.label7.Location = new System.Drawing.Point(12, 142);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 40);
             this.label7.TabIndex = 5;
@@ -245,80 +277,39 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label2.Location = new System.Drawing.Point(12, 79);
+            this.label2.Location = new System.Drawing.Point(12, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 40);
             this.label2.TabIndex = 0;
             this.label2.Text = "Hastane Adı:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnKapat
+            // Liste
             // 
-            this.btnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit_64;
-            this.btnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnKapat.Location = new System.Drawing.Point(1258, 24);
-            this.btnKapat.Name = "btnKapat";
-            this.btnKapat.Size = new System.Drawing.Size(50, 50);
-            this.btnKapat.TabIndex = 3;
-            this.btnKapat.UseVisualStyleBackColor = true;
-            // 
-            // btnKaydet
-            // 
-            this.btnKaydet.BackgroundImage = global::IEA_ErpProject.Properties.Resources.Save_icon64x64;
-            this.btnKaydet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnKaydet.Location = new System.Drawing.Point(16, 24);
-            this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(50, 50);
-            this.btnKaydet.TabIndex = 7;
-            this.btnKaydet.UseVisualStyleBackColor = true;
-            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
-            // 
-            // btnGuncelle
-            // 
-            this.btnGuncelle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.Update32x32;
-            this.btnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuncelle.Location = new System.Drawing.Point(72, 24);
-            this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(50, 50);
-            this.btnGuncelle.TabIndex = 6;
-            this.btnGuncelle.UseVisualStyleBackColor = true;
-            // 
-            // btnSil
-            // 
-            this.btnSil.BackgroundImage = global::IEA_ErpProject.Properties.Resources.cop24x24;
-            this.btnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSil.Location = new System.Drawing.Point(128, 24);
-            this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(50, 50);
-            this.btnSil.TabIndex = 5;
-            this.btnSil.UseVisualStyleBackColor = true;
-            // 
-            // btnTemizle
-            // 
-            this.btnTemizle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.png_transparent_dustpan_computer_icons_iconfinder_clear_miscellaneous_angle_photography;
-            this.btnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTemizle.Location = new System.Drawing.Point(184, 24);
-            this.btnTemizle.Name = "btnTemizle";
-            this.btnTemizle.Size = new System.Drawing.Size(50, 50);
-            this.btnTemizle.TabIndex = 4;
-            this.btnTemizle.UseVisualStyleBackColor = true;
-            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Sira,
             this.Id,
             this.Adi,
             this.TipId,
+            this.Tel,
             this.Sehir});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1320, 136);
-            this.dataGridView1.TabIndex = 0;
+            this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Liste.Location = new System.Drawing.Point(0, 0);
+            this.Liste.Name = "Liste";
+            this.Liste.RowHeadersWidth = 62;
+            this.Liste.RowTemplate.Height = 28;
+            this.Liste.Size = new System.Drawing.Size(1320, 135);
+            this.Liste.TabIndex = 0;
+            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
+            // 
+            // Sira
+            // 
+            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Sira.HeaderText = "Sira";
+            this.Sira.MinimumWidth = 8;
+            this.Sira.Name = "Sira";
+            this.Sira.Width = 73;
             // 
             // Id
             // 
@@ -343,6 +334,14 @@
             this.TipId.Name = "TipId";
             this.TipId.Width = 134;
             // 
+            // Tel
+            // 
+            this.Tel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Tel.HeaderText = "Telefon";
+            this.Tel.MinimumWidth = 8;
+            this.Tel.Name = "Tel";
+            this.Tel.Width = 98;
+            // 
             // Sehir
             // 
             this.Sehir.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -350,6 +349,76 @@
             this.Sehir.MinimumWidth = 8;
             this.Sehir.Name = "Sehir";
             this.Sehir.Width = 82;
+            // 
+            // btnKaydet
+            // 
+            this.btnKaydet.BackgroundImage = global::IEA_ErpProject.Properties.Resources.Save_icon64x64;
+            this.btnKaydet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnKaydet.Location = new System.Drawing.Point(16, 25);
+            this.btnKaydet.Name = "btnKaydet";
+            this.btnKaydet.Size = new System.Drawing.Size(50, 49);
+            this.btnKaydet.TabIndex = 7;
+            this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
+            // 
+            // btnGuncelle
+            // 
+            this.btnGuncelle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.Update32x32;
+            this.btnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGuncelle.Location = new System.Drawing.Point(72, 25);
+            this.btnGuncelle.Name = "btnGuncelle";
+            this.btnGuncelle.Size = new System.Drawing.Size(50, 49);
+            this.btnGuncelle.TabIndex = 6;
+            this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
+            // 
+            // btnSil
+            // 
+            this.btnSil.BackgroundImage = global::IEA_ErpProject.Properties.Resources.cop24x24;
+            this.btnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSil.Location = new System.Drawing.Point(128, 25);
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(50, 49);
+            this.btnSil.TabIndex = 5;
+            this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
+            // 
+            // btnTemizle
+            // 
+            this.btnTemizle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.png_transparent_dustpan_computer_icons_iconfinder_clear_miscellaneous_angle_photography;
+            this.btnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTemizle.Location = new System.Drawing.Point(184, 25);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.Size = new System.Drawing.Size(50, 49);
+            this.btnTemizle.TabIndex = 4;
+            this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
+            // 
+            // btnKapat
+            // 
+            this.btnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit_64;
+            this.btnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnKapat.Location = new System.Drawing.Point(1258, 25);
+            this.btnKapat.Name = "btnKapat";
+            this.btnKapat.Size = new System.Drawing.Size(50, 49);
+            this.btnKapat.TabIndex = 3;
+            this.btnKapat.UseVisualStyleBackColor = true;
+            // 
+            // BtnDetayGoster
+            // 
+            this.BtnDetayGoster.BackColor = System.Drawing.Color.SteelBlue;
+            this.BtnDetayGoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnDetayGoster.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnDetayGoster.Location = new System.Drawing.Point(897, 360);
+            this.BtnDetayGoster.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnDetayGoster.Name = "BtnDetayGoster";
+            this.BtnDetayGoster.Size = new System.Drawing.Size(194, 60);
+            this.BtnDetayGoster.TabIndex = 17;
+            this.BtnDetayGoster.Text = "Detay Goster";
+            this.BtnDetayGoster.UseVisualStyleBackColor = false;
+            this.BtnDetayGoster.Visible = false;
+            this.BtnDetayGoster.Click += new System.EventHandler(this.BtnDetayGoster_Click);
             // 
             // HastaneGiris
             // 
@@ -371,7 +440,7 @@
             this.ScHastane.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ScHastane)).EndInit();
             this.ScHastane.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -401,10 +470,15 @@
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.Button btnGuncelle;
         private System.Windows.Forms.Button btnKaydet;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Liste;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sira;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Adi;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sehir;
+        private System.Windows.Forms.TextBox TxtHastaneBul;
+        private System.Windows.Forms.Button BtnDetayEkle;
+        private System.Windows.Forms.Button BtnDetayGoster;
     }
 }

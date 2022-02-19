@@ -2,6 +2,7 @@
 using IEA_ErpProject.BilgiGiris.Firmalar;
 using IEA_ErpProject.BilgiGiris.Hastaneler;
 using IEA_ErpProject.BilgiGiris.Personeller;
+using IEA_ErpProject.Fonksiyonlar;
 using IEA_ErpProject.UrunBilgiGiris.Urunler;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,9 @@ namespace IEA_ErpProject
 {
     public partial class AnaSayfa : Form
     {
+        Formlar f = new Formlar();
+
+        public static int Aktarma = -1;
         public AnaSayfa()
         {
             InitializeComponent();
@@ -85,11 +89,12 @@ namespace IEA_ErpProject
             }
             if (isim == "Hastaneler Listesi" && Application.OpenForms["HastanelerListesi"] == null)
             {
-                HastanelerListesi frm = new HastanelerListesi();
-                frm.MdiParent = Form.ActiveForm;
-                // frm.MdiParent = Application.OpenForms["AnaSayfa"] as AnaSayfa;
+                //HastanelerListesi frm = new HastanelerListesi();
+                //frm.MdiParent = Form.ActiveForm;
+                //// frm.MdiParent = Application.OpenForms["AnaSayfa"] as AnaSayfa;
 
-                frm.Show(); // Bu formu çalıştır.
+                //frm.Show(); // Bu formu çalıştır.
+                f.HastanelerListesiAc();
             }
             else if (isim == "Hastane Bilgi Giriş" && Application.OpenForms["HastaneGiris"] == null)
             {
@@ -99,9 +104,11 @@ namespace IEA_ErpProject
             }
             else if (isim =="Doktorlar Listesi" && Application.OpenForms["DoktorlarListesi"]== null)
             {
-                DoktorlarListesi frm = new DoktorlarListesi();
-                frm.MdiParent = Form.ActiveForm;
-                frm.Show();
+                //DoktorlarListesi frm = new DoktorlarListesi();
+                //frm.MdiParent = Form.ActiveForm;
+                //frm.Show();
+                f.DoktorlarListesiAc();
+                
             }
             else if (isim =="Doktor Bilgi Giriş" && Application.OpenForms["DoktorGiris"]== null)
             {

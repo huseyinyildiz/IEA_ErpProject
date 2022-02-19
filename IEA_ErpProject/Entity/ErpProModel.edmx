@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ErpPro102SModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ErpPro102SModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Sehirler">
           <Key>
             <PropertyRef Name="Id" />
@@ -22,6 +22,47 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tblDepartmanlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmanKodu" Type="char" MaxLength="1" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="tblDetaylar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GirisId" Type="int" />
+          <Property Name="GirisAdi" Type="char" MaxLength="1" />
+          <Property Name="YetkiliAdi" Type="nchar" MaxLength="50" />
+          <Property Name="DepartmanId" Type="int" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="20" />
+          <Property Name="Gsm" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblDoktorlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Unvan" Type="nvarchar" MaxLength="10" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="70" />
+          <Property Name="Hastane1id" Type="int" />
+          <Property Name="Hastane2id" Type="int" />
+          <Property Name="Hastane3id" Type="int" />
+          <Property Name="Muayenehane" Type="nvarchar" MaxLength="100" />
+          <Property Name="Tel1" Type="nvarchar" MaxLength="20" />
+          <Property Name="Tel2" Type="nvarchar" MaxLength="20" />
+          <Property Name="Gsm" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="70" />
+          <Property Name="DTarih" Type="datetime" />
+          <Property Name="VergiDairesi" Type="nvarchar" MaxLength="50" />
+          <Property Name="VergiNo" Type="nvarchar" MaxLength="11" />
+          <Property Name="SehirId" Type="int" />
         </EntityType>
         <EntityType Name="tblHastaneler">
           <Key>
@@ -44,6 +85,78 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TipAdi" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_tblDetaylar_tblDepartmanlar">
+          <End Role="tblDepartmanlar" Type="Self.tblDepartmanlar" Multiplicity="0..1" />
+          <End Role="tblDetaylar" Type="Self.tblDetaylar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDepartmanlar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDetaylar">
+              <PropertyRef Name="DepartmanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblDetaylar_tblHastaneler">
+          <End Role="tblHastaneler" Type="Self.tblHastaneler" Multiplicity="0..1" />
+          <End Role="tblDetaylar" Type="Self.tblDetaylar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblHastaneler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDetaylar">
+              <PropertyRef Name="GirisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblDoktorlar_Sehirler">
+          <End Role="Sehirler" Type="Self.Sehirler" Multiplicity="0..1" />
+          <End Role="tblDoktorlar" Type="Self.tblDoktorlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehirler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDoktorlar">
+              <PropertyRef Name="SehirId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblDoktorlar_tblHastaneler1">
+          <End Role="tblHastaneler" Type="Self.tblHastaneler" Multiplicity="0..1" />
+          <End Role="tblDoktorlar" Type="Self.tblDoktorlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblHastaneler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDoktorlar">
+              <PropertyRef Name="Hastane1id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblDoktorlar_tblHastaneler2">
+          <End Role="tblHastaneler" Type="Self.tblHastaneler" Multiplicity="0..1" />
+          <End Role="tblDoktorlar" Type="Self.tblDoktorlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblHastaneler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDoktorlar">
+              <PropertyRef Name="Hastane2id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblDoktorlar_tblHastaneler3">
+          <End Role="tblHastaneler" Type="Self.tblHastaneler" Multiplicity="0..1" />
+          <End Role="tblDoktorlar" Type="Self.tblDoktorlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblHastaneler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDoktorlar">
+              <PropertyRef Name="Hastane3id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tblHastaneler_Sehirler">
           <End Role="Sehirler" Type="Self.Sehirler" Multiplicity="0..1" />
           <End Role="tblHastaneler" Type="Self.tblHastaneler" Multiplicity="*" />
@@ -102,8 +215,35 @@
         <EntityContainer Name="ErpPro102SModelStoreContainer">
           <EntitySet Name="Sehirler" EntityType="Self.Sehirler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDepartmanlar" EntityType="Self.tblDepartmanlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDetaylar" EntityType="Self.tblDetaylar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDoktorlar" EntityType="Self.tblDoktorlar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHastaneler" EntityType="Self.tblHastaneler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHastaneTipleri" EntityType="Self.tblHastaneTipleri" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblDetaylar_tblDepartmanlar" Association="Self.FK_tblDetaylar_tblDepartmanlar">
+            <End Role="tblDepartmanlar" EntitySet="tblDepartmanlar" />
+            <End Role="tblDetaylar" EntitySet="tblDetaylar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblDetaylar_tblHastaneler" Association="Self.FK_tblDetaylar_tblHastaneler">
+            <End Role="tblHastaneler" EntitySet="tblHastaneler" />
+            <End Role="tblDetaylar" EntitySet="tblDetaylar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblDoktorlar_Sehirler" Association="Self.FK_tblDoktorlar_Sehirler">
+            <End Role="Sehirler" EntitySet="Sehirler" />
+            <End Role="tblDoktorlar" EntitySet="tblDoktorlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblDoktorlar_tblHastaneler1" Association="Self.FK_tblDoktorlar_tblHastaneler1">
+            <End Role="tblHastaneler" EntitySet="tblHastaneler" />
+            <End Role="tblDoktorlar" EntitySet="tblDoktorlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblDoktorlar_tblHastaneler2" Association="Self.FK_tblDoktorlar_tblHastaneler2">
+            <End Role="tblHastaneler" EntitySet="tblHastaneler" />
+            <End Role="tblDoktorlar" EntitySet="tblDoktorlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblDoktorlar_tblHastaneler3" Association="Self.FK_tblDoktorlar_tblHastaneler3">
+            <End Role="tblHastaneler" EntitySet="tblHastaneler" />
+            <End Role="tblDoktorlar" EntitySet="tblDoktorlar" />
+          </AssociationSet>
           <AssociationSet Name="FK_tblHastaneler_Sehirler" Association="Self.FK_tblHastaneler_Sehirler">
             <End Role="Sehirler" EntitySet="Sehirler" />
             <End Role="tblHastaneler" EntitySet="tblHastaneler" />
@@ -113,8 +253,7 @@
             <End Role="tblHastaneler" EntitySet="tblHastaneler" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ErpPro102SModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -126,6 +265,7 @@
           <Property Name="Code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblHastaneler" Relationship="Self.FK_tblHastaneler_Sehirler" FromRole="Sehirler" ToRole="tblHastaneler" />
+          <NavigationProperty Name="tblDoktorlar" Relationship="ErpPro102SModel.FK_tblDoktorlar_Sehirler" FromRole="Sehirler" ToRole="tblDoktorlar" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -152,6 +292,10 @@
           <Property Name="VergiNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Sehirler" Relationship="Self.FK_tblHastaneler_Sehirler" FromRole="tblHastaneler" ToRole="Sehirler" />
           <NavigationProperty Name="tblHastaneTipleri" Relationship="Self.FK_tblHastaneler_tblHastaneTipleri" FromRole="tblHastaneler" ToRole="tblHastaneTipleri" />
+          <NavigationProperty Name="tblDetaylar" Relationship="ErpPro102SModel.FK_tblDetaylar_tblHastaneler" FromRole="tblHastaneler" ToRole="tblDetaylar" />
+          <NavigationProperty Name="tblDoktorlar" Relationship="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler1" FromRole="tblHastaneler" ToRole="tblDoktorlar" />
+          <NavigationProperty Name="tblDoktorlar1" Relationship="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler2" FromRole="tblHastaneler" ToRole="tblDoktorlar" />
+          <NavigationProperty Name="tblDoktorlar2" Relationship="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler3" FromRole="tblHastaneler" ToRole="tblDoktorlar" />
         </EntityType>
         <EntityType Name="tblHastaneTipleri">
           <Key>
@@ -228,6 +372,33 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="tblDepartmanlar" EntityType="ErpPro102SModel.tblDepartmanlar" />
+          <EntitySet Name="tblDetaylar" EntityType="ErpPro102SModel.tblDetaylar" />
+          <AssociationSet Name="FK_tblDetaylar_tblDepartmanlar" Association="ErpPro102SModel.FK_tblDetaylar_tblDepartmanlar">
+            <End Role="tblDepartmanlar" EntitySet="tblDepartmanlar" />
+            <End Role="tblDetaylar" EntitySet="tblDetaylar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblDetaylar_tblHastaneler" Association="ErpPro102SModel.FK_tblDetaylar_tblHastaneler">
+            <End Role="tblHastaneler" EntitySet="tblHastaneler" />
+            <End Role="tblDetaylar" EntitySet="tblDetaylar" />
+          </AssociationSet>
+          <EntitySet Name="tblDoktorlar" EntityType="ErpPro102SModel.tblDoktorlar" />
+          <AssociationSet Name="FK_tblDoktorlar_tblHastaneler1" Association="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler1">
+            <End Role="tblHastaneler" EntitySet="tblHastaneler" />
+            <End Role="tblDoktorlar" EntitySet="tblDoktorlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblDoktorlar_tblHastaneler2" Association="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler2">
+            <End Role="tblHastaneler" EntitySet="tblHastaneler" />
+            <End Role="tblDoktorlar" EntitySet="tblDoktorlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblDoktorlar_tblHastaneler3" Association="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler3">
+            <End Role="tblHastaneler" EntitySet="tblHastaneler" />
+            <End Role="tblDoktorlar" EntitySet="tblDoktorlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblDoktorlar_Sehirler" Association="ErpPro102SModel.FK_tblDoktorlar_Sehirler">
+            <End Role="Sehirler" EntitySet="Sehirler" />
+            <End Role="tblDoktorlar" EntitySet="tblDoktorlar" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -240,6 +411,126 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="tblDepartmanlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmanKodu" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Adi" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblDetaylar" Relationship="ErpPro102SModel.FK_tblDetaylar_tblDepartmanlar" FromRole="tblDepartmanlar" ToRole="tblDetaylar" />
+        </EntityType>
+        <EntityType Name="tblDetaylar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GirisId" Type="Int32" />
+          <Property Name="GirisAdi" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="YetkiliAdi" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="DepartmanId" Type="Int32" />
+          <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Gsm" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblDepartmanlar" Relationship="ErpPro102SModel.FK_tblDetaylar_tblDepartmanlar" FromRole="tblDetaylar" ToRole="tblDepartmanlar" />
+          <NavigationProperty Name="tblHastaneler" Relationship="ErpPro102SModel.FK_tblDetaylar_tblHastaneler" FromRole="tblDetaylar" ToRole="tblHastaneler" />
+        </EntityType>
+        <Association Name="FK_tblDetaylar_tblDepartmanlar">
+          <End Type="ErpPro102SModel.tblDepartmanlar" Role="tblDepartmanlar" Multiplicity="0..1" />
+          <End Type="ErpPro102SModel.tblDetaylar" Role="tblDetaylar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDepartmanlar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDetaylar">
+              <PropertyRef Name="DepartmanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblDetaylar_tblHastaneler">
+          <End Type="ErpPro102SModel.tblHastaneler" Role="tblHastaneler" Multiplicity="0..1" />
+          <End Type="ErpPro102SModel.tblDetaylar" Role="tblDetaylar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblHastaneler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDetaylar">
+              <PropertyRef Name="GirisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblDoktorlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Unvan" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Adi" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="Hastane1id" Type="Int32" />
+          <Property Name="Hastane2id" Type="Int32" />
+          <Property Name="Hastane3id" Type="Int32" />
+          <Property Name="Muayenehane" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Tel1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Tel2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Gsm" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="DTarih" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblHastaneler" Relationship="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler1" FromRole="tblDoktorlar" ToRole="tblHastaneler" />
+          <NavigationProperty Name="tblHastaneler1" Relationship="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler2" FromRole="tblDoktorlar" ToRole="tblHastaneler" />
+          <NavigationProperty Name="tblHastaneler2" Relationship="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler3" FromRole="tblDoktorlar" ToRole="tblHastaneler" />
+          <Property Name="VergiDairesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VergiNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="SehirId" Type="Int32" />
+          <NavigationProperty Name="Sehirler" Relationship="ErpPro102SModel.FK_tblDoktorlar_Sehirler" FromRole="tblDoktorlar" ToRole="Sehirler" />
+        </EntityType>
+        <Association Name="FK_tblDoktorlar_tblHastaneler1">
+          <End Type="ErpPro102SModel.tblHastaneler" Role="tblHastaneler" Multiplicity="0..1" />
+          <End Type="ErpPro102SModel.tblDoktorlar" Role="tblDoktorlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblHastaneler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDoktorlar">
+              <PropertyRef Name="Hastane1id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblDoktorlar_tblHastaneler2">
+          <End Type="ErpPro102SModel.tblHastaneler" Role="tblHastaneler" Multiplicity="0..1" />
+          <End Type="ErpPro102SModel.tblDoktorlar" Role="tblDoktorlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblHastaneler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDoktorlar">
+              <PropertyRef Name="Hastane2id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblDoktorlar_tblHastaneler3">
+          <End Type="ErpPro102SModel.tblHastaneler" Role="tblHastaneler" Multiplicity="0..1" />
+          <End Type="ErpPro102SModel.tblDoktorlar" Role="tblDoktorlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblHastaneler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDoktorlar">
+              <PropertyRef Name="Hastane3id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblDoktorlar_Sehirler">
+          <End Type="ErpPro102SModel.Sehirler" Role="Sehirler" Multiplicity="0..1" />
+          <End Type="ErpPro102SModel.tblDoktorlar" Role="tblDoktorlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehirler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDoktorlar">
+              <PropertyRef Name="SehirId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -313,6 +604,50 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ErpPro102SModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ErpPro102SModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="tblDepartmanlar">
+            <EntityTypeMapping TypeName="ErpPro102SModel.tblDepartmanlar">
+              <MappingFragment StoreEntitySet="tblDepartmanlar">
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="DepartmanKodu" ColumnName="DepartmanKodu" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDetaylar">
+            <EntityTypeMapping TypeName="ErpPro102SModel.tblDetaylar">
+              <MappingFragment StoreEntitySet="tblDetaylar">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gsm" ColumnName="Gsm" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="DepartmanId" ColumnName="DepartmanId" />
+                <ScalarProperty Name="YetkiliAdi" ColumnName="YetkiliAdi" />
+                <ScalarProperty Name="GirisAdi" ColumnName="GirisAdi" />
+                <ScalarProperty Name="GirisId" ColumnName="GirisId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDoktorlar">
+            <EntityTypeMapping TypeName="ErpPro102SModel.tblDoktorlar">
+              <MappingFragment StoreEntitySet="tblDoktorlar">
+                <ScalarProperty Name="SehirId" ColumnName="SehirId" />
+                <ScalarProperty Name="VergiNo" ColumnName="VergiNo" />
+                <ScalarProperty Name="VergiDairesi" ColumnName="VergiDairesi" />
+                <ScalarProperty Name="DTarih" ColumnName="DTarih" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gsm" ColumnName="Gsm" />
+                <ScalarProperty Name="Tel2" ColumnName="Tel2" />
+                <ScalarProperty Name="Tel1" ColumnName="Tel1" />
+                <ScalarProperty Name="Muayenehane" ColumnName="Muayenehane" />
+                <ScalarProperty Name="Hastane3id" ColumnName="Hastane3id" />
+                <ScalarProperty Name="Hastane2id" ColumnName="Hastane2id" />
+                <ScalarProperty Name="Hastane1id" ColumnName="Hastane1id" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

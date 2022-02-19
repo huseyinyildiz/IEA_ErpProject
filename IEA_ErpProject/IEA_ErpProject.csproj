@@ -73,6 +73,7 @@
     <Compile Include="BilgiGiris\Doktorlar\DoktorlarListesi.Designer.cs">
       <DependentUpon>DoktorlarListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="BilgiGiris\Doktorlar\Unvan.cs" />
     <Compile Include="BilgiGiris\Firmalar\FirmaGiris.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +85,18 @@
     </Compile>
     <Compile Include="BilgiGiris\Firmalar\FirmalarListesi.Designer.cs">
       <DependentUpon>FirmalarListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGiris\Hastaneler\HastaneDetay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGiris\Hastaneler\HastaneDetay.Designer.cs">
+      <DependentUpon>HastaneDetay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGiris\Hastaneler\HastaneDetayGoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGiris\Hastaneler\HastaneDetayGoster.Designer.cs">
+      <DependentUpon>HastaneDetayGoster.cs</DependentUpon>
     </Compile>
     <Compile Include="BilgiGiris\Hastaneler\HastaneGiris.cs">
       <SubType>Form</SubType>
@@ -136,12 +149,22 @@
     <Compile Include="Entity\sysdiagrams.cs">
       <DependentUpon>ErpProModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\tblDepartmanlar.cs">
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblDetaylar.cs">
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblDoktorlar.cs">
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\tblHastaneler.cs">
       <DependentUpon>ErpProModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\tblHastaneTipleri.cs">
       <DependentUpon>ErpProModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Fonksiyonlar\Formlar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UrunBilgiGiris\Urunler\UrunGiris.cs">
@@ -170,6 +193,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGiris\Firmalar\FirmalarListesi.resx">
       <DependentUpon>FirmalarListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGiris\Hastaneler\HastaneDetay.resx">
+      <DependentUpon>HastaneDetay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGiris\Hastaneler\HastaneDetayGoster.resx">
+      <DependentUpon>HastaneDetayGoster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGiris\Hastaneler\HastaneGiris.resx">
       <DependentUpon>HastaneGiris.cs</DependentUpon>
@@ -226,9 +255,7 @@
   <ItemGroup>
     <None Include="res\RightLeft2Red.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Fonksiyonlar\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Entity\ErpProModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
