@@ -1,4 +1,5 @@
 ﻿using IEA_ErpProject.BilgiGiris.Doktorlar;
+using IEA_ErpProject.BilgiGiris.Firmalar;
 using IEA_ErpProject.BilgiGiris.Hastaneler;
 using System;
 using System.Collections.Generic;
@@ -67,6 +68,31 @@ namespace IEA_ErpProject.Fonksiyonlar
         public void DoktorGirisAc(int id)
         {
             DoktorGiris frm = new DoktorGiris();
+            frm.MdiParent = Form.ActiveForm;
+            frm.Show();
+            frm.Ac(id);
+        }
+        public int FirmalarListesiAc(bool secim = false)
+        {
+            FirmalarListesi frm = new FirmalarListesi();
+            if (secim)
+            {
+                frm.Secim = true;
+                frm.ShowDialog();
+
+            }
+            else
+            {
+                frm.MdiParent = Form.ActiveForm;
+                //frm.Secim=true;
+                frm.Show();
+            }
+
+            return AnaSayfa.Aktarma;
+        }
+        public void FirmaGirisAc(int id)
+        {
+            FirmaGiris frm = new FirmaGiris();
             frm.MdiParent = Form.ActiveForm;
             frm.Show();
             frm.Ac(id);

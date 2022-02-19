@@ -86,6 +86,7 @@
     <Compile Include="BilgiGiris\Firmalar\FirmalarListesi.Designer.cs">
       <DependentUpon>FirmalarListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="BilgiGiris\Firmalar\FirmaTip.cs" />
     <Compile Include="BilgiGiris\Hastaneler\HastaneDetay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +157,9 @@
       <DependentUpon>ErpProModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\tblDoktorlar.cs">
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblFirmalar.cs">
       <DependentUpon>ErpProModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\tblHastaneler.cs">

@@ -64,6 +64,19 @@
           <Property Name="VergiNo" Type="nvarchar" MaxLength="11" />
           <Property Name="SehirId" Type="int" />
         </EntityType>
+        <EntityType Name="tblFirmalar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="350" />
+          <Property Name="SehirId" Type="int" />
+          <Property Name="FirmaTip" Type="nvarchar" MaxLength="50" />
+          <Property Name="DetayId" Type="int" />
+          <Property Name="VergiDairesi" Type="nvarchar" MaxLength="50" />
+          <Property Name="VergiNo" Type="nvarchar" MaxLength="11" />
+        </EntityType>
         <EntityType Name="tblHastaneler">
           <Key>
             <PropertyRef Name="Id" />
@@ -157,6 +170,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tblFirmalar_Sehirler">
+          <End Role="Sehirler" Type="Self.Sehirler" Multiplicity="0..1" />
+          <End Role="tblFirmalar" Type="Self.tblFirmalar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehirler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFirmalar">
+              <PropertyRef Name="SehirId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFirmalar_tblDetaylar">
+          <End Role="tblDetaylar" Type="Self.tblDetaylar" Multiplicity="0..1" />
+          <End Role="tblFirmalar" Type="Self.tblFirmalar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDetaylar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFirmalar">
+              <PropertyRef Name="DetayId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tblHastaneler_Sehirler">
           <End Role="Sehirler" Type="Self.Sehirler" Multiplicity="0..1" />
           <End Role="tblHastaneler" Type="Self.tblHastaneler" Multiplicity="*" />
@@ -218,6 +255,7 @@
           <EntitySet Name="tblDepartmanlar" EntityType="Self.tblDepartmanlar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDetaylar" EntityType="Self.tblDetaylar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDoktorlar" EntityType="Self.tblDoktorlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFirmalar" EntityType="Self.tblFirmalar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHastaneler" EntityType="Self.tblHastaneler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHastaneTipleri" EntityType="Self.tblHastaneTipleri" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tblDetaylar_tblDepartmanlar" Association="Self.FK_tblDetaylar_tblDepartmanlar">
@@ -244,6 +282,14 @@
             <End Role="tblHastaneler" EntitySet="tblHastaneler" />
             <End Role="tblDoktorlar" EntitySet="tblDoktorlar" />
           </AssociationSet>
+          <AssociationSet Name="FK_tblFirmalar_Sehirler" Association="Self.FK_tblFirmalar_Sehirler">
+            <End Role="Sehirler" EntitySet="Sehirler" />
+            <End Role="tblFirmalar" EntitySet="tblFirmalar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFirmalar_tblDetaylar" Association="Self.FK_tblFirmalar_tblDetaylar">
+            <End Role="tblDetaylar" EntitySet="tblDetaylar" />
+            <End Role="tblFirmalar" EntitySet="tblFirmalar" />
+          </AssociationSet>
           <AssociationSet Name="FK_tblHastaneler_Sehirler" Association="Self.FK_tblHastaneler_Sehirler">
             <End Role="Sehirler" EntitySet="Sehirler" />
             <End Role="tblHastaneler" EntitySet="tblHastaneler" />
@@ -266,6 +312,7 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblHastaneler" Relationship="Self.FK_tblHastaneler_Sehirler" FromRole="Sehirler" ToRole="tblHastaneler" />
           <NavigationProperty Name="tblDoktorlar" Relationship="ErpPro102SModel.FK_tblDoktorlar_Sehirler" FromRole="Sehirler" ToRole="tblDoktorlar" />
+          <NavigationProperty Name="tblFirmalar" Relationship="ErpPro102SModel.FK_tblFirmalar_Sehirler" FromRole="Sehirler" ToRole="tblFirmalar" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -399,6 +446,15 @@
             <End Role="Sehirler" EntitySet="Sehirler" />
             <End Role="tblDoktorlar" EntitySet="tblDoktorlar" />
           </AssociationSet>
+          <EntitySet Name="tblFirmalar" EntityType="ErpPro102SModel.tblFirmalar" />
+          <AssociationSet Name="FK_tblFirmalar_Sehirler" Association="ErpPro102SModel.FK_tblFirmalar_Sehirler">
+            <End Role="Sehirler" EntitySet="Sehirler" />
+            <End Role="tblFirmalar" EntitySet="tblFirmalar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFirmalar_tblDetaylar" Association="ErpPro102SModel.FK_tblFirmalar_tblDetaylar">
+            <End Role="tblDetaylar" EntitySet="tblDetaylar" />
+            <End Role="tblFirmalar" EntitySet="tblFirmalar" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -434,6 +490,7 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblDepartmanlar" Relationship="ErpPro102SModel.FK_tblDetaylar_tblDepartmanlar" FromRole="tblDetaylar" ToRole="tblDepartmanlar" />
           <NavigationProperty Name="tblHastaneler" Relationship="ErpPro102SModel.FK_tblDetaylar_tblHastaneler" FromRole="tblDetaylar" ToRole="tblHastaneler" />
+          <NavigationProperty Name="tblFirmalar" Relationship="ErpPro102SModel.FK_tblFirmalar_tblDetaylar" FromRole="tblDetaylar" ToRole="tblFirmalar" />
         </EntityType>
         <Association Name="FK_tblDetaylar_tblDepartmanlar">
           <End Type="ErpPro102SModel.tblDepartmanlar" Role="tblDepartmanlar" Multiplicity="0..1" />
@@ -528,6 +585,45 @@
             </Principal>
             <Dependent Role="tblDoktorlar">
               <PropertyRef Name="SehirId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblFirmalar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="SehirId" Type="Int32" />
+          <Property Name="FirmaTip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DetayId" Type="Int32" />
+          <Property Name="VergiDairesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VergiNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Sehirler" Relationship="ErpPro102SModel.FK_tblFirmalar_Sehirler" FromRole="tblFirmalar" ToRole="Sehirler" />
+          <NavigationProperty Name="tblDetaylar" Relationship="ErpPro102SModel.FK_tblFirmalar_tblDetaylar" FromRole="tblFirmalar" ToRole="tblDetaylar" />
+        </EntityType>
+        <Association Name="FK_tblFirmalar_Sehirler">
+          <End Type="ErpPro102SModel.Sehirler" Role="Sehirler" Multiplicity="0..1" />
+          <End Type="ErpPro102SModel.tblFirmalar" Role="tblFirmalar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehirler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFirmalar">
+              <PropertyRef Name="SehirId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFirmalar_tblDetaylar">
+          <End Type="ErpPro102SModel.tblDetaylar" Role="tblDetaylar" Multiplicity="0..1" />
+          <End Type="ErpPro102SModel.tblFirmalar" Role="tblFirmalar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDetaylar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFirmalar">
+              <PropertyRef Name="DetayId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -644,6 +740,20 @@
                 <ScalarProperty Name="Hastane1id" ColumnName="Hastane1id" />
                 <ScalarProperty Name="Adi" ColumnName="Adi" />
                 <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFirmalar">
+            <EntityTypeMapping TypeName="ErpPro102SModel.tblFirmalar">
+              <MappingFragment StoreEntitySet="tblFirmalar">
+                <ScalarProperty Name="VergiNo" ColumnName="VergiNo" />
+                <ScalarProperty Name="VergiDairesi" ColumnName="VergiDairesi" />
+                <ScalarProperty Name="DetayId" ColumnName="DetayId" />
+                <ScalarProperty Name="FirmaTip" ColumnName="FirmaTip" />
+                <ScalarProperty Name="SehirId" ColumnName="SehirId" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

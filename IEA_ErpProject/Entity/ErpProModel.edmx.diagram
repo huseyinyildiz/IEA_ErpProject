@@ -20,6 +20,9 @@
         <AssociationConnector Association="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler2" />
         <AssociationConnector Association="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler3" />
         <AssociationConnector Association="ErpPro102SModel.FK_tblDoktorlar_Sehirler" />
+        <EntityTypeShape EntityType="ErpPro102SModel.tblFirmalar" Width="1.5" PointX="7.5" PointY="4" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblFirmalar_Sehirler" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblFirmalar_tblDetaylar" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
