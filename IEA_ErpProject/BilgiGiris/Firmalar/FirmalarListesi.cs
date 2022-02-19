@@ -34,7 +34,7 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
             Liste.Rows.Clear();
             int i = 0;
 
-            frmList = (from s in _db.tblFirmalar select s).ToList();//Firmalar tablosunda bilgi getirir
+            frmList = (from s in _db.tblFirmalar where s.Adi.Contains(TxtFirmaAra.Text) select s).ToList();//Firmalar tablosunda bilgi getirir
 
             foreach (var item in frmList)
             {

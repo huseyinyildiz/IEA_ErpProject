@@ -23,6 +23,9 @@
         <EntityTypeShape EntityType="ErpPro102SModel.tblFirmalar" Width="1.5" PointX="7.5" PointY="4" />
         <AssociationConnector Association="ErpPro102SModel.FK_tblFirmalar_Sehirler" />
         <AssociationConnector Association="ErpPro102SModel.FK_tblFirmalar_tblDetaylar" />
+        <EntityTypeShape EntityType="ErpPro102SModel.tblPersoneller" Width="1.5" PointX="8.25" PointY="0.75" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblPersoneller_Sehirler" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblPersoneller_tblDepartmanlar" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
