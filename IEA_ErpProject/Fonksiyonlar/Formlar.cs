@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IEA_ErpProject.BilgiGiris.Urunler;
 
 namespace IEA_ErpProject.Fonksiyonlar
 {
@@ -130,6 +131,25 @@ namespace IEA_ErpProject.Fonksiyonlar
             frm.LblFirmaId.Text = id.ToString();
             frm.ShowDialog();
 
+        }
+
+        public int UrunKayitListesiAc(bool secim = false)
+        {
+            UrunKayitListesi frm = new UrunKayitListesi();
+            if (secim)
+            {
+                frm.Secim = true;
+                frm.ShowDialog();
+
+            }
+            else
+            {
+                frm.MdiParent = Form.ActiveForm;
+                //frm.Secim=true;
+                frm.Show();
+            }
+
+            return AnaSayfa.Aktarma;
         }
     }
 }

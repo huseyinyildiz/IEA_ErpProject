@@ -3,7 +3,6 @@ using IEA_ErpProject.BilgiGiris.Firmalar;
 using IEA_ErpProject.BilgiGiris.Hastaneler;
 using IEA_ErpProject.BilgiGiris.Personeller;
 using IEA_ErpProject.Fonksiyonlar;
-using IEA_ErpProject.UrunBilgiGiris.Urunler;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IEA_ErpProject.BilgiGiris.Urunler;
 
 namespace IEA_ErpProject
 {
@@ -62,7 +62,11 @@ namespace IEA_ErpProject
 
                 tvMenu.Nodes.Add("Personeller");
                 tvMenu.Nodes[3].Nodes.Add("Personeller  Listesi");
-                tvMenu.Nodes[3].Nodes.Add("Personel Bilgi Giriş"); 
+                tvMenu.Nodes[3].Nodes.Add("Personel Bilgi Giriş");
+
+                tvMenu.Nodes.Add("Urunler");
+                tvMenu.Nodes[4].Nodes.Add("Urun Kayit Listesi");
+                tvMenu.Nodes[4].Nodes.Add("Urun Kayit");
             }
             else if (info=="urun")
             {
@@ -140,15 +144,13 @@ namespace IEA_ErpProject
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }
-            else if (isim =="Ürünler Listesi" && Application.OpenForms["UrunlerListesi"] == null)
+            else if (isim =="Urun Kayit Listesi" && Application.OpenForms["UrunKayitListesi"] == null)
             {
-                UrunlerListesi frm = new UrunlerListesi();
-                frm.MdiParent= Form.ActiveForm;
-                frm.Show();
+                f.UrunKayitListesiAc();
             }
-            else if (isim == "Ürün Bilgi Giriş" && Application.OpenForms["UrunGiris"] == null)
+            else if (isim == "Urun Kayit" && Application.OpenForms["UrunKayit"] == null)
             {
-                UrunGiris frm = new UrunGiris();
+                UrunKayit frm = new UrunKayit();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }

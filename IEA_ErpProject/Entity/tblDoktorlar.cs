@@ -30,9 +30,9 @@ namespace IEA_ErpProject.Entity
         public string VergiNo { get; set; }
         public Nullable<int> SehirId { get; set; }
     
+        public virtual Sehirler Sehirler { get; set; }
         public virtual tblHastaneler tblHastaneler { get; set; }
         public virtual tblHastaneler tblHastaneler1 { get; set; }
         public virtual tblHastaneler tblHastaneler2 { get; set; }
-        public virtual Sehirler Sehirler { get; set; }
     }
 }

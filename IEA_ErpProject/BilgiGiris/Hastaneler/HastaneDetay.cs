@@ -45,12 +45,11 @@ namespace IEA_ErpProject.BilgiGiris.Hastaneler
                     Liste.Rows.Add();
                     Liste.Rows[i].Cells[0].Value = i + 1;
                     Liste.Rows[i].Cells[1].Value = LblHastaneId.Text;
-                    Liste.Rows[i].Cells[2].Value = 'H';
-                    Liste.Rows[i].Cells[3].Value = TxtYetkili.Text;
-                    Liste.Rows[i].Cells[4].Value = TxtDeparman.SelectedValue;
-                    Liste.Rows[i].Cells[5].Value = TxtTel.Text;
-                    Liste.Rows[i].Cells[6].Value = TxtGsm.Text;
-                    Liste.Rows[i].Cells[7].Value = TxtEmail.Text;
+                    Liste.Rows[i].Cells[2].Value = TxtYetkili.Text;
+                    Liste.Rows[i].Cells[3].Value = TxtDeparman.SelectedValue;
+                    Liste.Rows[i].Cells[4].Value = TxtTel.Text;
+                    Liste.Rows[i].Cells[5].Value = TxtGsm.Text;
+                    Liste.Rows[i].Cells[6].Value = TxtEmail.Text;
                     //Liste.AllowUserToAddRows = false;
 
                 } 
@@ -93,20 +92,20 @@ namespace IEA_ErpProject.BilgiGiris.Hastaneler
                 return;
             }
 
-            List<tblDetaylar> lst = new List<tblDetaylar>();
+            List<tblHastaneDetaylar> lst = new List<tblHastaneDetaylar>();
             for (int i = 0; i < Liste.Rows.Count; i++)
             {
-                tblDetaylar dty = new tblDetaylar();
+                tblHastaneDetaylar dty = new tblHastaneDetaylar();
                 dty.GirisId = Convert.ToInt32(Liste.Rows[i].Cells[1].Value);
-                dty.GirisAdi = Liste.Rows[i].Cells[2].Value.ToString();
-                dty.YetkiliAdi = Liste.Rows[i].Cells[3].Value.ToString();
-                dty.DepartmanId = Convert.ToInt32(Liste.Rows[i].Cells[4].Value);
-                dty.Tel = Liste.Rows[i].Cells[5].Value.ToString();
-                dty.Gsm = Liste.Rows[i].Cells[6].Value.ToString();
-                dty.Email=Liste.Rows[i].Cells[7].Value.ToString();
+               // dty.GirisAdi = Liste.Rows[i].Cells[2].Value.ToString();
+                dty.YetkiliAdi = Liste.Rows[i].Cells[2].Value.ToString();
+                dty.DepartmanId = Convert.ToInt32(Liste.Rows[i].Cells[3].Value);
+                dty.Tel = Liste.Rows[i].Cells[4].Value.ToString();
+                dty.Gsm = Liste.Rows[i].Cells[5].Value.ToString();
+                dty.Email=Liste.Rows[i].Cells[6].Value.ToString();
                 lst.Add(dty);
             }
-            _db.tblDetaylar.AddRange(lst);
+            _db.tblHastaneDetaylar.AddRange(lst);
             _db.SaveChanges();
             MessageBox.Show("Kayıt Gerçekleşti");
             Close();

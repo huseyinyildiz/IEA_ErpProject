@@ -20,7 +20,7 @@ namespace IEA_ErpProject.Entity
             this.tblDoktorlar = new HashSet<tblDoktorlar>();
             this.tblDoktorlar1 = new HashSet<tblDoktorlar>();
             this.tblDoktorlar2 = new HashSet<tblDoktorlar>();
-            this.tblDetaylar = new HashSet<tblDetaylar>();
+            this.tblHastaneDetaylar = new HashSet<tblHastaneDetaylar>();
         }
     
         public int Id { get; set; }
@@ -34,7 +34,6 @@ namespace IEA_ErpProject.Entity
         public string VergiNo { get; set; }
     
         public virtual Sehirler Sehirler { get; set; }
-        public virtual tblHastaneTipleri tblHastaneTipleri { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblDoktorlar> tblDoktorlar { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -42,6 +41,7 @@ namespace IEA_ErpProject.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblDoktorlar> tblDoktorlar2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblDetaylar> tblDetaylar { get; set; }
+        public virtual ICollection<tblHastaneDetaylar> tblHastaneDetaylar { get; set; }
+        public virtual tblHastaneTipleri tblHastaneTipleri { get; set; }
     }
 }

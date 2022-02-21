@@ -17,7 +17,7 @@ namespace IEA_ErpProject.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblFirmalar()
         {
-            this.tblDetaylar = new HashSet<tblDetaylar>();
+            this.tblFirmaDetaylar = new HashSet<tblFirmaDetaylar>();
         }
     
         public int Id { get; set; }
@@ -33,6 +33,6 @@ namespace IEA_ErpProject.Entity
     
         public virtual Sehirler Sehirler { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblDetaylar> tblDetaylar { get; set; }
+        public virtual ICollection<tblFirmaDetaylar> tblFirmaDetaylar { get; set; }
     }
 }

@@ -37,15 +37,14 @@
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.BtnEkle = new System.Windows.Forms.Button();
             this.Liste = new System.Windows.Forms.DataGridView();
+            this.BtnKaydet = new System.Windows.Forms.Button();
             this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GirisId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GirisAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Yetkili = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Departman = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gsm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnKaydet = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,7 +132,6 @@
             this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sira,
             this.GirisId,
-            this.GirisAdi,
             this.Yetkili,
             this.Departman,
             this.Tel,
@@ -145,6 +143,17 @@
             this.Liste.RowHeadersWidth = 62;
             this.Liste.Size = new System.Drawing.Size(1060, 209);
             this.Liste.TabIndex = 8;
+            // 
+            // BtnKaydet
+            // 
+            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydet.Location = new System.Drawing.Point(993, 575);
+            this.BtnKaydet.Name = "BtnKaydet";
+            this.BtnKaydet.Size = new System.Drawing.Size(123, 70);
+            this.BtnKaydet.TabIndex = 9;
+            this.BtnKaydet.Text = "Kaydet";
+            this.BtnKaydet.UseVisualStyleBackColor = true;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
             // Sira
             // 
@@ -161,13 +170,6 @@
             this.GirisId.MinimumWidth = 8;
             this.GirisId.Name = "GirisId";
             this.GirisId.Width = 91;
-            // 
-            // GirisAdi
-            // 
-            this.GirisAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.GirisAdi.HeaderText = "GirisAdi";
-            this.GirisAdi.MinimumWidth = 8;
-            this.GirisAdi.Name = "GirisAdi";
             // 
             // Yetkili
             // 
@@ -206,17 +208,6 @@
             this.Email.MinimumWidth = 8;
             this.Email.Name = "Email";
             // 
-            // BtnKaydet
-            // 
-            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(993, 575);
-            this.BtnKaydet.Name = "BtnKaydet";
-            this.BtnKaydet.Size = new System.Drawing.Size(123, 70);
-            this.BtnKaydet.TabIndex = 9;
-            this.BtnKaydet.Text = "Kaydet";
-            this.BtnKaydet.UseVisualStyleBackColor = true;
-            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
-            // 
             // HastaneDetay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -253,14 +244,13 @@
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Button BtnEkle;
         private System.Windows.Forms.DataGridView Liste;
+        private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sira;
         private System.Windows.Forms.DataGridViewTextBoxColumn GirisId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GirisAdi;
         private System.Windows.Forms.DataGridViewTextBoxColumn Yetkili;
         private System.Windows.Forms.DataGridViewTextBoxColumn Departman;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gsm;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.Button BtnKaydet;
     }
 }

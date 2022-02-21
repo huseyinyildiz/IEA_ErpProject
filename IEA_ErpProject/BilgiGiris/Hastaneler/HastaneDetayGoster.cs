@@ -30,7 +30,7 @@ namespace IEA_ErpProject.BilgiGiris.Hastaneler
             Liste.Rows.Clear();
             int i = 0;
 
-            var hstDetayList = (from s in _db.tblDetaylar where s.GirisAdi=="H" where s.tblHastaneler.Adi==Hadi select s).ToList();//Hastaneler tablosunda bilgi getirir
+            var hstDetayList = (from s in _db.tblHastaneDetaylar where s.tblHastaneler.Adi==Hadi select s).ToList();//Hastaneler tablosunda bilgi getirir
 
             foreach (var item in hstDetayList)
             {

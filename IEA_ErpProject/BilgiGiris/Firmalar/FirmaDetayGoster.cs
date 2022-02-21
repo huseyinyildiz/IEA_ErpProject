@@ -32,7 +32,7 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
             Liste.Rows.Clear();
             int i = 0;
 
-            var frmDetayList = (from s in _db.tblDetaylar where s.GirisAdi == "F" where s.tblFirmalar.Adi == Fadi select s).ToList();//getirir
+            var frmDetayList = (from s in _db.tblFirmaDetaylar where s.tblFirmalar.Adi == Fadi select s).ToList();//getirir
 
             foreach (var item in frmDetayList)
             {

@@ -29,15 +29,7 @@
         private void InitializeComponent()
         {
             this.BtnKaydet = new System.Windows.Forms.Button();
-            this.Gsm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Departman = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Yetkili = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GirisAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GirisId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Liste = new System.Windows.Forms.DataGridView();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnEkle = new System.Windows.Forms.Button();
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.TxtTel = new System.Windows.Forms.MaskedTextBox();
@@ -46,6 +38,13 @@
             this.TxtYetkili = new System.Windows.Forms.TextBox();
             this.LblFirmaId = new System.Windows.Forms.Label();
             this.lblFirmaAdi = new System.Windows.Forms.Label();
+            this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GirisId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Yetkili = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Departman = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gsm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,66 +59,12 @@
             this.BtnKaydet.UseVisualStyleBackColor = true;
             this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
-            // Gsm
-            // 
-            this.Gsm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Gsm.HeaderText = "Gsm";
-            this.Gsm.MinimumWidth = 8;
-            this.Gsm.Name = "Gsm";
-            this.Gsm.Width = 79;
-            // 
-            // Tel
-            // 
-            this.Tel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Tel.HeaderText = "Telefon";
-            this.Tel.MinimumWidth = 8;
-            this.Tel.Name = "Tel";
-            this.Tel.Width = 98;
-            // 
-            // Departman
-            // 
-            this.Departman.HeaderText = "Departman";
-            this.Departman.MinimumWidth = 8;
-            this.Departman.Name = "Departman";
-            this.Departman.Width = 150;
-            // 
-            // Yetkili
-            // 
-            this.Yetkili.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Yetkili.HeaderText = "Yetkili";
-            this.Yetkili.MinimumWidth = 8;
-            this.Yetkili.Name = "Yetkili";
-            // 
-            // GirisAdi
-            // 
-            this.GirisAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.GirisAdi.HeaderText = "GirisAdi";
-            this.GirisAdi.MinimumWidth = 8;
-            this.GirisAdi.Name = "GirisAdi";
-            // 
-            // GirisId
-            // 
-            this.GirisId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.GirisId.HeaderText = "GirisId";
-            this.GirisId.MinimumWidth = 8;
-            this.GirisId.Name = "GirisId";
-            this.GirisId.Width = 91;
-            // 
-            // Sira
-            // 
-            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Sira.HeaderText = "Sira";
-            this.Sira.MinimumWidth = 8;
-            this.Sira.Name = "Sira";
-            this.Sira.Width = 73;
-            // 
             // Liste
             // 
             this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sira,
             this.GirisId,
-            this.GirisAdi,
             this.Yetkili,
             this.Departman,
             this.Tel,
@@ -131,13 +76,6 @@
             this.Liste.RowHeadersWidth = 62;
             this.Liste.Size = new System.Drawing.Size(1060, 209);
             this.Liste.TabIndex = 18;
-            // 
-            // Email
-            // 
-            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 8;
-            this.Email.Name = "Email";
             // 
             // BtnEkle
             // 
@@ -217,6 +155,59 @@
             this.lblFirmaAdi.Text = "****";
             this.lblFirmaAdi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // Sira
+            // 
+            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Sira.HeaderText = "Sira";
+            this.Sira.MinimumWidth = 8;
+            this.Sira.Name = "Sira";
+            this.Sira.Width = 73;
+            // 
+            // GirisId
+            // 
+            this.GirisId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.GirisId.HeaderText = "GirisId";
+            this.GirisId.MinimumWidth = 8;
+            this.GirisId.Name = "GirisId";
+            this.GirisId.Width = 91;
+            // 
+            // Yetkili
+            // 
+            this.Yetkili.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Yetkili.HeaderText = "Yetkili";
+            this.Yetkili.MinimumWidth = 8;
+            this.Yetkili.Name = "Yetkili";
+            // 
+            // Departman
+            // 
+            this.Departman.HeaderText = "Departman";
+            this.Departman.MinimumWidth = 8;
+            this.Departman.Name = "Departman";
+            this.Departman.Width = 150;
+            // 
+            // Tel
+            // 
+            this.Tel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Tel.HeaderText = "Telefon";
+            this.Tel.MinimumWidth = 8;
+            this.Tel.Name = "Tel";
+            this.Tel.Width = 98;
+            // 
+            // Gsm
+            // 
+            this.Gsm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Gsm.HeaderText = "Gsm";
+            this.Gsm.MinimumWidth = 8;
+            this.Gsm.Name = "Gsm";
+            this.Gsm.Width = 79;
+            // 
+            // Email
+            // 
+            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 8;
+            this.Email.Name = "Email";
+            // 
             // FirmaDetay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -244,15 +235,7 @@
         #endregion
 
         private System.Windows.Forms.Button BtnKaydet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Gsm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Departman;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Yetkili;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GirisAdi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GirisId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sira;
         private System.Windows.Forms.DataGridView Liste;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.Button BtnEkle;
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.MaskedTextBox TxtTel;
@@ -261,5 +244,12 @@
         private System.Windows.Forms.TextBox TxtYetkili;
         public System.Windows.Forms.Label LblFirmaId;
         public System.Windows.Forms.Label lblFirmaAdi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sira;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GirisId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Yetkili;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Departman;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gsm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
     }
 }
