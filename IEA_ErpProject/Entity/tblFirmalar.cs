@@ -14,16 +14,25 @@ namespace IEA_ErpProject.Entity
     
     public partial class tblFirmalar
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblFirmalar()
+        {
+            this.tblDetaylar = new HashSet<tblDetaylar>();
+        }
+    
         public int Id { get; set; }
         public string Adi { get; set; }
         public string Adres { get; set; }
         public Nullable<int> SehirId { get; set; }
         public string FirmaTip { get; set; }
-        public Nullable<int> DetayId { get; set; }
         public string VergiDairesi { get; set; }
         public string VergiNo { get; set; }
+        public string Web { get; set; }
+        public string Tel { get; set; }
+        public string Email { get; set; }
     
         public virtual Sehirler Sehirler { get; set; }
-        public virtual tblDetaylar tblDetaylar { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblDetaylar> tblDetaylar { get; set; }
     }
 }

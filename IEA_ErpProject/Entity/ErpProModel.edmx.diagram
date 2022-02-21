@@ -12,20 +12,20 @@
         <AssociationConnector Association="ErpPro102SModel.FK_tblHastaneler_Sehirler" ManuallyRouted="false" />
         <AssociationConnector Association="ErpPro102SModel.FK_tblHastaneler_tblHastaneTipleri" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ErpPro102SModel.tblDepartmanlar" Width="1.5" PointX="3" PointY="5.75" />
-        <EntityTypeShape EntityType="ErpPro102SModel.tblDetaylar" Width="1.5" PointX="5.25" PointY="4.25" />
-        <AssociationConnector Association="ErpPro102SModel.FK_tblDetaylar_tblDepartmanlar" />
-        <AssociationConnector Association="ErpPro102SModel.FK_tblDetaylar_tblHastaneler" />
         <EntityTypeShape EntityType="ErpPro102SModel.tblDoktorlar" Width="1.5" PointX="5.25" PointY="8" />
         <AssociationConnector Association="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler1" />
         <AssociationConnector Association="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler2" />
         <AssociationConnector Association="ErpPro102SModel.FK_tblDoktorlar_tblHastaneler3" />
         <AssociationConnector Association="ErpPro102SModel.FK_tblDoktorlar_Sehirler" />
-        <EntityTypeShape EntityType="ErpPro102SModel.tblFirmalar" Width="1.5" PointX="7.5" PointY="4" />
-        <AssociationConnector Association="ErpPro102SModel.FK_tblFirmalar_Sehirler" />
-        <AssociationConnector Association="ErpPro102SModel.FK_tblFirmalar_tblDetaylar" />
         <EntityTypeShape EntityType="ErpPro102SModel.tblPersoneller" Width="1.5" PointX="8.25" PointY="0.75" />
         <AssociationConnector Association="ErpPro102SModel.FK_tblPersoneller_Sehirler" />
         <AssociationConnector Association="ErpPro102SModel.FK_tblPersoneller_tblDepartmanlar" />
+        <EntityTypeShape EntityType="ErpPro102SModel.tblDetaylar" Width="1.5" PointX="8.25" PointY="5.125" />
+        <EntityTypeShape EntityType="ErpPro102SModel.tblFirmalar" Width="1.5" PointX="3" PointY="9.125" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblFirmalar_Sehirler" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblDetaylar_tblDepartmanlar" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblDetaylar_tblFirmalar" />
+        <AssociationConnector Association="ErpPro102SModel.FK_tblDetaylar_tblHastaneler" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

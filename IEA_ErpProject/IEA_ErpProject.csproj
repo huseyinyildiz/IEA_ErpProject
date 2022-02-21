@@ -74,6 +74,18 @@
       <DependentUpon>DoktorlarListesi.cs</DependentUpon>
     </Compile>
     <Compile Include="BilgiGiris\Doktorlar\Unvan.cs" />
+    <Compile Include="BilgiGiris\Firmalar\FirmaDetay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGiris\Firmalar\FirmaDetay.Designer.cs">
+      <DependentUpon>FirmaDetay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGiris\Firmalar\FirmaDetayGoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGiris\Firmalar\FirmaDetayGoster.Designer.cs">
+      <DependentUpon>FirmaDetayGoster.cs</DependentUpon>
+    </Compile>
     <Compile Include="BilgiGiris\Firmalar\FirmaGiris.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +206,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGiris\Doktorlar\DoktorlarListesi.resx">
       <DependentUpon>DoktorlarListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGiris\Firmalar\FirmaDetay.resx">
+      <DependentUpon>FirmaDetay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGiris\Firmalar\FirmaDetayGoster.resx">
+      <DependentUpon>FirmaDetayGoster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGiris\Firmalar\FirmaGiris.resx">
       <DependentUpon>FirmaGiris.cs</DependentUpon>

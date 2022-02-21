@@ -43,19 +43,25 @@
             this.btnKapat = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.Liste = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnTemizle = new System.Windows.Forms.Button();
-            this.ScFirma = new System.Windows.Forms.SplitContainer();
-            this.TxtFirmaTip = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Adi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirmaTip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sehir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnTemizle = new System.Windows.Forms.Button();
+            this.ScFirma = new System.Windows.Forms.SplitContainer();
+            this.TxtEmail = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtTelefon = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TxtFirmaTip = new System.Windows.Forms.ComboBox();
+            this.TxtWeb = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ScFirma)).BeginInit();
             this.ScFirma.Panel1.SuspendLayout();
@@ -76,6 +82,7 @@
             this.BtnDetayGoster.Text = "Detay Goster";
             this.BtnDetayGoster.UseVisualStyleBackColor = false;
             this.BtnDetayGoster.Visible = false;
+            this.BtnDetayGoster.Click += new System.EventHandler(this.BtnDetayGoster_Click);
             // 
             // BtnDetayEkle
             // 
@@ -90,6 +97,7 @@
             this.BtnDetayEkle.Text = "Detay Ekle";
             this.BtnDetayEkle.UseVisualStyleBackColor = false;
             this.BtnDetayEkle.Visible = false;
+            this.BtnDetayEkle.Click += new System.EventHandler(this.BtnDetayEkle_Click);
             // 
             // TxtFirmaBul
             // 
@@ -191,6 +199,7 @@
             this.btnKapat.Size = new System.Drawing.Size(50, 49);
             this.btnKapat.TabIndex = 10;
             this.btnKapat.UseVisualStyleBackColor = true;
+            this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
             // 
             // label6
             // 
@@ -219,6 +228,45 @@
             this.Liste.Size = new System.Drawing.Size(1429, 133);
             this.Liste.TabIndex = 0;
             this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
+            // 
+            // Sira
+            // 
+            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Sira.HeaderText = "Sira";
+            this.Sira.MinimumWidth = 8;
+            this.Sira.Name = "Sira";
+            this.Sira.Width = 73;
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 8;
+            this.Id.Name = "Id";
+            this.Id.Width = 59;
+            // 
+            // Adi
+            // 
+            this.Adi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Adi.HeaderText = "Firma Adı";
+            this.Adi.MinimumWidth = 8;
+            this.Adi.Name = "Adi";
+            // 
+            // FirmaTip
+            // 
+            this.FirmaTip.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.FirmaTip.HeaderText = "Firma Tipi";
+            this.FirmaTip.MinimumWidth = 8;
+            this.FirmaTip.Name = "FirmaTip";
+            this.FirmaTip.Width = 113;
+            // 
+            // Sehir
+            // 
+            this.Sehir.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Sehir.HeaderText = "Şehir";
+            this.Sehir.MinimumWidth = 8;
+            this.Sehir.Name = "Sehir";
+            this.Sehir.Width = 82;
             // 
             // label4
             // 
@@ -270,6 +318,10 @@
             // 
             // ScFirma.Panel1
             // 
+            this.ScFirma.Panel1.Controls.Add(this.TxtEmail);
+            this.ScFirma.Panel1.Controls.Add(this.label15);
+            this.ScFirma.Panel1.Controls.Add(this.txtTelefon);
+            this.ScFirma.Panel1.Controls.Add(this.label5);
             this.ScFirma.Panel1.Controls.Add(this.BtnDetayGoster);
             this.ScFirma.Panel1.Controls.Add(this.BtnDetayEkle);
             this.ScFirma.Panel1.Controls.Add(this.TxtFirmaBul);
@@ -277,11 +329,13 @@
             this.ScFirma.Panel1.Controls.Add(this.TxtFAdres);
             this.ScFirma.Panel1.Controls.Add(this.TxtFirmaTip);
             this.ScFirma.Panel1.Controls.Add(this.TxtSehir);
+            this.ScFirma.Panel1.Controls.Add(this.TxtWeb);
             this.ScFirma.Panel1.Controls.Add(this.txtFVergiDairesi);
             this.ScFirma.Panel1.Controls.Add(this.TxtFadi);
             this.ScFirma.Panel1.Controls.Add(this.label8);
             this.ScFirma.Panel1.Controls.Add(this.label7);
             this.ScFirma.Panel1.Controls.Add(this.label6);
+            this.ScFirma.Panel1.Controls.Add(this.label9);
             this.ScFirma.Panel1.Controls.Add(this.label4);
             this.ScFirma.Panel1.Controls.Add(this.label3);
             this.ScFirma.Panel1.Controls.Add(this.label2);
@@ -294,6 +348,41 @@
             this.ScFirma.SplitterWidth = 5;
             this.ScFirma.TabIndex = 9;
             // 
+            // TxtEmail
+            // 
+            this.TxtEmail.Location = new System.Drawing.Point(602, 295);
+            this.TxtEmail.Name = "TxtEmail";
+            this.TxtEmail.Size = new System.Drawing.Size(286, 26);
+            this.TxtEmail.TabIndex = 21;
+            // 
+            // label15
+            // 
+            this.label15.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label15.Location = new System.Drawing.Point(474, 289);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(100, 40);
+            this.label15.TabIndex = 20;
+            this.label15.Text = "Email";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtTelefon
+            // 
+            this.txtTelefon.Location = new System.Drawing.Point(615, 227);
+            this.txtTelefon.Mask = "(999) 000-0000";
+            this.txtTelefon.Name = "txtTelefon";
+            this.txtTelefon.Size = new System.Drawing.Size(127, 26);
+            this.txtTelefon.TabIndex = 19;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label5.Location = new System.Drawing.Point(474, 220);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 40);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Telefon";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // TxtFirmaTip
             // 
             this.TxtFirmaTip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -302,6 +391,13 @@
             this.TxtFirmaTip.Name = "TxtFirmaTip";
             this.TxtFirmaTip.Size = new System.Drawing.Size(225, 28);
             this.TxtFirmaTip.TabIndex = 12;
+            // 
+            // TxtWeb
+            // 
+            this.TxtWeb.Location = new System.Drawing.Point(631, 363);
+            this.TxtWeb.Name = "TxtWeb";
+            this.TxtWeb.Size = new System.Drawing.Size(154, 26);
+            this.TxtWeb.TabIndex = 10;
             // 
             // label7
             // 
@@ -312,6 +408,16 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "Firma Tipi";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label9.Location = new System.Drawing.Point(474, 360);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 40);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Web";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
@@ -325,45 +431,6 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Firma Giriş";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Sira
-            // 
-            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Sira.HeaderText = "Sira";
-            this.Sira.MinimumWidth = 8;
-            this.Sira.Name = "Sira";
-            this.Sira.Width = 73;
-            // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 8;
-            this.Id.Name = "Id";
-            this.Id.Width = 59;
-            // 
-            // Adi
-            // 
-            this.Adi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Adi.HeaderText = "Firma Adı";
-            this.Adi.MinimumWidth = 8;
-            this.Adi.Name = "Adi";
-            // 
-            // FirmaTip
-            // 
-            this.FirmaTip.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.FirmaTip.HeaderText = "Firma Tipi";
-            this.FirmaTip.MinimumWidth = 8;
-            this.FirmaTip.Name = "FirmaTip";
-            this.FirmaTip.Width = 113;
-            // 
-            // Sehir
-            // 
-            this.Sehir.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Sehir.HeaderText = "Şehir";
-            this.Sehir.MinimumWidth = 8;
-            this.Sehir.Name = "Sehir";
-            this.Sehir.Width = 82;
             // 
             // FirmaGiris
             // 
@@ -419,5 +486,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Adi;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirmaTip;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sehir;
+        private System.Windows.Forms.MaskedTextBox txtTelefon;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox TxtEmail;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox TxtWeb;
+        private System.Windows.Forms.Label label9;
     }
 }

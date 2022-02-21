@@ -17,10 +17,10 @@ namespace IEA_ErpProject.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblHastaneler()
         {
-            this.tblDetaylar = new HashSet<tblDetaylar>();
             this.tblDoktorlar = new HashSet<tblDoktorlar>();
             this.tblDoktorlar1 = new HashSet<tblDoktorlar>();
             this.tblDoktorlar2 = new HashSet<tblDoktorlar>();
+            this.tblDetaylar = new HashSet<tblDetaylar>();
         }
     
         public int Id { get; set; }
@@ -36,12 +36,12 @@ namespace IEA_ErpProject.Entity
         public virtual Sehirler Sehirler { get; set; }
         public virtual tblHastaneTipleri tblHastaneTipleri { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblDetaylar> tblDetaylar { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblDoktorlar> tblDoktorlar { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblDoktorlar> tblDoktorlar1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblDoktorlar> tblDoktorlar2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblDetaylar> tblDetaylar { get; set; }
     }
 }

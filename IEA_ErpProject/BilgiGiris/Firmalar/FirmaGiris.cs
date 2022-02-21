@@ -58,6 +58,9 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
             {
                 tblFirmalar firm = new tblFirmalar();
                 firm.Adi = TxtFadi.Text;
+                firm.Tel = txtTelefon.Text;
+                firm.Web = TxtWeb.Text;
+                firm.Email = TxtEmail.Text;
                 firm.Adres = TxtFAdres.Text;
                 firm.FirmaTip = TxtFirmaTip.Text;
                 if (TxtSehir.SelectedValue != null) firm.SehirId = (int)TxtSehir.SelectedValue;
@@ -86,10 +89,17 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
                     k.Text = "";
                 }
                
-                TxtSehir.SelectedIndex = -1;
-                TxtFirmaTip.SelectedIndex = -1;
+                
 
             }
+            TxtSehir.SelectedIndex = -1;
+            TxtFirmaTip.SelectedIndex = -1;
+            BtnDetayEkle.Visible = false;
+            BtnDetayGoster.Visible = false;
+            kayitBul = null;
+            secimId = -1;
+            btnKaydet.Enabled = true;
+
         }
 
         private List<tblFirmalar> frmList;
@@ -167,6 +177,9 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
                 if (kayitBul != null)
                 {
                     TxtFVergiNo.Text = kayitBul.VergiNo;
+                    TxtWeb.Text = kayitBul.Web;
+                    txtTelefon.Text = kayitBul.Tel;
+                    TxtEmail.Text = kayitBul.Email;
                     TxtSehir.Text = kayitBul.Sehirler.Name;
                     TxtFAdres.Text = kayitBul.Adres;
                     TxtFirmaTip.Text = kayitBul.FirmaTip;
@@ -190,6 +203,7 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
                 secimId = (int)Liste.CurrentRow.Cells[1].Value;
 
             }
+            btnKaydet.Enabled = false;
             Ac(secimId);
         }
 
@@ -214,6 +228,9 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
                 }
 
                 kayitBul.Adres = TxtFAdres.Text;
+                kayitBul.Web = TxtWeb.Text;
+                kayitBul.Email = TxtEmail.Text;
+                kayitBul.Tel = txtTelefon.Text;
                 kayitBul.FirmaTip = TxtFirmaTip.Text;
                 kayitBul.Adi = TxtFadi.Text;
                 kayitBul.VergiDairesi = txtFVergiDairesi.Text;
@@ -256,6 +273,35 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
         private void btnTemizle_Click(object sender, EventArgs e)
         {
             Temizle();
+        }
+
+        private void BtnDetayEkle_Click(object sender, EventArgs e)
+        {
+            string adi = "";
+            int id = -1;
+            if (secimId > 0)
+            {
+                adi = TxtFadi.Text;
+                id = int.Parse(TxtFirmaBul.Text);
+                f.FirmaDetayAc(adi, id);
+            }
+            else
+            {
+                MessageBox.Show("Önce bir kayıt seçin!!");
+                return;
+            }
+        }
+
+        private void BtnDetayGoster_Click(object sender, EventArgs e)
+        {
+            FirmaDetayGoster goster = new FirmaDetayGoster();
+            goster.Fadi = TxtFadi.Text;
+            goster.ShowDialog();
+        }
+
+        private void btnKapat_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

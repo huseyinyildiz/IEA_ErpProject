@@ -32,10 +32,10 @@ namespace IEA_ErpProject.Entity
         public virtual DbSet<tblHastaneler> tblHastaneler { get; set; }
         public virtual DbSet<tblHastaneTipleri> tblHastaneTipleri { get; set; }
         public virtual DbSet<tblDepartmanlar> tblDepartmanlar { get; set; }
-        public virtual DbSet<tblDetaylar> tblDetaylar { get; set; }
         public virtual DbSet<tblDoktorlar> tblDoktorlar { get; set; }
-        public virtual DbSet<tblFirmalar> tblFirmalar { get; set; }
         public virtual DbSet<tblPersoneller> tblPersoneller { get; set; }
+        public virtual DbSet<tblDetaylar> tblDetaylar { get; set; }
+        public virtual DbSet<tblFirmalar> tblFirmalar { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

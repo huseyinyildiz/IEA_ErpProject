@@ -1,0 +1,112 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using IEA_ErpProject.Entity;
+
+namespace IEA_ErpProject.BilgiGiris.Firmalar
+{
+    public partial class FirmaDetay : Form
+    {
+        private readonly ErpPro102SEntities _db = new ErpPro102SEntities();
+        public FirmaDetay()
+        {
+            InitializeComponent();
+        }
+
+        private void FirmaDetay_Load(object sender, EventArgs e)
+        {
+            ComboDoldur();
+            TxtYetkili.Focus();
+        }
+
+        private void ComboDoldur()
+        {
+            TxtDeparman.DataSource = _db.tblDepartmanlar.Where(x => x.DepartmanKodu == "F").ToList();
+            TxtDeparman.ValueMember = "Id";
+            TxtDeparman.DisplayMember = "Adi";
+            TxtDeparman.SelectedIndex = -1;
+        }
+
+        private void BtnEkle_Click(object sender, EventArgs e)
+        {
+            if (TxtYetkili.Text != "" && TxtDeparman.SelectedIndex != -1)
+            {
+                Liste.AllowUserToAddRows = false;
+                int i = -1;
+                if (Liste.Rows.Count >= 0)
+                {
+                    i = Liste.Rows.Count;
+                    Liste.Rows.Add();
+                    Liste.Rows[i].Cells[0].Value = i + 1;
+                    Liste.Rows[i].Cells[1].Value = LblFirmaId.Text;
+                    Liste.Rows[i].Cells[2].Value = 'F';
+                    Liste.Rows[i].Cells[3].Value = TxtYetkili.Text;
+                    Liste.Rows[i].Cells[4].Value = TxtDeparman.SelectedValue;
+                    Liste.Rows[i].Cells[5].Value = TxtTel.Text;
+                    Liste.Rows[i].Cells[6].Value = TxtGsm.Text;
+                    Liste.Rows[i].Cells[7].Value = TxtEmail.Text;
+                    //Liste.AllowUserToAddRows = false;
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("İlgili alanlari doldurun lütfen");
+                ActiveControl = TxtYetkili;
+            }
+
+            Temizle();
+
+        }
+
+        private void Temizle()
+        {
+            TxtYetkili.Clear();
+            TxtDeparman.Text = "";
+            TxtTel.Clear();
+            TxtGsm.Clear();
+            TxtEmail.Clear();
+
+            ActiveControl = TxtYetkili;
+        }
+
+        private void BtnKaydet_Click(object sender, EventArgs e)
+        {
+            YeniKayit();
+        }
+
+        private void YeniKayit()
+        {
+            if (Liste.Rows[0].Cells[0].Value == null)
+            {
+                MessageBox.Show("Önce bir kayıt ekleyin.");
+                ActiveControl = TxtYetkili;
+                return;
+            }
+
+            List<tblDetaylar> lst = new List<tblDetaylar>();
+            for (int i = 0; i < Liste.Rows.Count; i++)
+            {
+                tblDetaylar dty = new tblDetaylar();
+                dty.GirisId = Convert.ToInt32(Liste.Rows[i].Cells[1].Value);
+                dty.GirisAdi = Liste.Rows[i].Cells[2].Value.ToString();
+                dty.YetkiliAdi = Liste.Rows[i].Cells[3].Value.ToString();
+                dty.DepartmanId = Convert.ToInt32(Liste.Rows[i].Cells[4].Value);
+                dty.Tel = Liste.Rows[i].Cells[5].Value.ToString();
+                dty.Gsm = Liste.Rows[i].Cells[6].Value.ToString();
+                dty.Email = Liste.Rows[i].Cells[7].Value.ToString();
+                lst.Add(dty);
+            }
+            _db.tblDetaylar.AddRange(lst);
+            _db.SaveChanges();
+            MessageBox.Show("Kayıt Gerçekleşti");
+            Close();
+        }
+    }
+}

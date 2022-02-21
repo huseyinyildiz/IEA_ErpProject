@@ -123,5 +123,13 @@ namespace IEA_ErpProject.Fonksiyonlar
             frm.Show();
             frm.Ac(id);
         }
+        public void FirmaDetayAc(string adi, int id)
+        {
+            FirmaDetay frm = new FirmaDetay();
+            frm.lblFirmaAdi.Text = adi;
+            frm.LblFirmaId.Text = id.ToString();
+            frm.ShowDialog();
+
+        }
     }
 }

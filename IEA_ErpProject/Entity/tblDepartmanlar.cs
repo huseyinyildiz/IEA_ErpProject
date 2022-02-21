@@ -17,8 +17,8 @@ namespace IEA_ErpProject.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblDepartmanlar()
         {
-            this.tblDetaylar = new HashSet<tblDetaylar>();
             this.tblPersoneller = new HashSet<tblPersoneller>();
+            this.tblDetaylar = new HashSet<tblDetaylar>();
         }
     
         public int Id { get; set; }
@@ -26,8 +26,8 @@ namespace IEA_ErpProject.Entity
         public string Adi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblDetaylar> tblDetaylar { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblPersoneller> tblPersoneller { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblDetaylar> tblDetaylar { get; set; }
     }
 }

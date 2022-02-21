@@ -19,8 +19,8 @@ namespace IEA_ErpProject.Entity
         {
             this.tblHastaneler = new HashSet<tblHastaneler>();
             this.tblDoktorlar = new HashSet<tblDoktorlar>();
-            this.tblFirmalar = new HashSet<tblFirmalar>();
             this.tblPersoneller = new HashSet<tblPersoneller>();
+            this.tblFirmalar = new HashSet<tblFirmalar>();
         }
     
         public int Id { get; set; }
@@ -32,8 +32,8 @@ namespace IEA_ErpProject.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblDoktorlar> tblDoktorlar { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblFirmalar> tblFirmalar { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblPersoneller> tblPersoneller { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblFirmalar> tblFirmalar { get; set; }
     }
 }
