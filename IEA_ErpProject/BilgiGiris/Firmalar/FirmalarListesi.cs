@@ -66,16 +66,22 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
                 secimId = (int?)Liste.CurrentRow.Cells[1].Value ?? -1;
             }
 
-            if (secimId > 0 && Application.OpenForms["FirmaGiris"] == null)
+            if (secimId > 0 && Secim && Application.OpenForms["FirmaGiris"] == null)
             {
                 AnaSayfa.Aktarma = secimId;
                 Close();
-                f.FirmaGirisAc(AnaSayfa.Aktarma);
+              //  f.FirmaGirisAc(AnaSayfa.Aktarma);
             }
-            else if (Secim && Application.OpenForms["FirmaGiris"] != null)
+            else if (Secim && Application.OpenForms["FirmaGiris"]!=null)
             {
+                //AnaSayfa.Aktarma = secimId;
                 FirmaGiris frm = Application.OpenForms["FirmaGiris"] as FirmaGiris;
                 frm.Ac(secimId);
+                Close();
+            }
+            else if (!Secim)
+            {
+                f.FirmaGirisAc(secimId);
                 Close();
             }
         }

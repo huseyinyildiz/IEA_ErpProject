@@ -14,6 +14,7 @@ namespace IEA_ErpProject.Fonksiyonlar
 {
     public class Formlar
     {
+
         public int HastanelerListesiAc(bool secim = false)
         {
             HastanelerListesi frm = new HastanelerListesi();

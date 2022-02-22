@@ -21,5 +21,8 @@ namespace IEA_ErpProject.Entity
         public Nullable<System.DateTime> GirisTarih { get; set; }
         public byte[] Resim { get; set; }
         public Nullable<int> Uid { get; set; }
+        public Nullable<int> FirmaId { get; set; }
+    
+        public virtual tblFirmalar tblFirmalar { get; set; }
     }
 }

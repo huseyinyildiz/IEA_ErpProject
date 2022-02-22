@@ -161,6 +161,7 @@
           <Property Name="GirisTarih" Type="date" />
           <Property Name="Resim" Type="image" />
           <Property Name="Uid" Type="int" />
+          <Property Name="FirmaId" Type="int" />
         </EntityType>
         <Association Name="FK_tbFirmalDetaylar_tblDepartmanlar">
           <End Role="tblDepartmanlar" Type="Self.tblDepartmanlar" Multiplicity="0..1" />
@@ -318,6 +319,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tblUrunKayitUst_tblFirmalar">
+          <End Role="tblFirmalar" Type="Self.tblFirmalar" Multiplicity="0..1" />
+          <End Role="tblUrunKayitUst" Type="Self.tblUrunKayitUst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFirmalar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUrunKayitUst">
+              <PropertyRef Name="FirmaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -413,6 +426,10 @@
           <AssociationSet Name="FK_tblPersoneller_tblDepartmanlar" Association="Self.FK_tblPersoneller_tblDepartmanlar">
             <End Role="tblDepartmanlar" EntitySet="tblDepartmanlar" />
             <End Role="tblPersoneller" EntitySet="tblPersoneller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUrunKayitUst_tblFirmalar" Association="Self.FK_tblUrunKayitUst_tblFirmalar">
+            <End Role="tblFirmalar" EntitySet="tblFirmalar" />
+            <End Role="tblUrunKayitUst" EntitySet="tblUrunKayitUst" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -514,6 +531,10 @@
           </AssociationSet>
           <EntitySet Name="tblUrunKayitAlt" EntityType="ErpPro102SModel.tblUrunKayitAlt" />
           <EntitySet Name="tblUrunKayitUst" EntityType="ErpPro102SModel.tblUrunKayitUst" />
+          <AssociationSet Name="FK_tblUrunKayitUst_tblFirmalar" Association="ErpPro102SModel.FK_tblUrunKayitUst_tblFirmalar">
+            <End Role="tblFirmalar" EntitySet="tblFirmalar" />
+            <End Role="tblUrunKayitUst" EntitySet="tblUrunKayitUst" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -613,6 +634,7 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Sehirler" Relationship="ErpPro102SModel.FK_tblFirmalar_Sehirler" FromRole="tblFirmalar" ToRole="Sehirler" />
           <NavigationProperty Name="tblFirmaDetaylar" Relationship="ErpPro102SModel.FK_tblFirmaDetaylar_tblFirmalar" FromRole="tblFirmalar" ToRole="tblFirmaDetaylar" />
+          <NavigationProperty Name="tblUrunKayitUst" Relationship="ErpPro102SModel.FK_tblUrunKayitUst_tblFirmalar" FromRole="tblFirmalar" ToRole="tblUrunKayitUst" />
         </EntityType>
         <EntityType Name="tblHastaneDetaylar">
           <Key>
@@ -864,7 +886,21 @@
           <Property Name="GirisTarih" Type="DateTime" Precision="0" />
           <Property Name="Resim" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Uid" Type="Int32" />
+          <Property Name="FirmaId" Type="Int32" />
+          <NavigationProperty Name="tblFirmalar" Relationship="ErpPro102SModel.FK_tblUrunKayitUst_tblFirmalar" FromRole="tblUrunKayitUst" ToRole="tblFirmalar" />
         </EntityType>
+        <Association Name="FK_tblUrunKayitUst_tblFirmalar">
+          <End Type="ErpPro102SModel.tblFirmalar" Role="tblFirmalar" Multiplicity="0..1" />
+          <End Type="ErpPro102SModel.tblUrunKayitUst" Role="tblUrunKayitUst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFirmalar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUrunKayitUst">
+              <PropertyRef Name="FirmaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1054,6 +1090,7 @@
           <EntitySetMapping Name="tblUrunKayitUst">
             <EntityTypeMapping TypeName="ErpPro102SModel.tblUrunKayitUst">
               <MappingFragment StoreEntitySet="tblUrunKayitUst">
+                <ScalarProperty Name="FirmaId" ColumnName="FirmaId" />
                 <ScalarProperty Name="Uid" ColumnName="Uid" />
                 <ScalarProperty Name="Resim" ColumnName="Resim" />
                 <ScalarProperty Name="GirisTarih" ColumnName="GirisTarih" />

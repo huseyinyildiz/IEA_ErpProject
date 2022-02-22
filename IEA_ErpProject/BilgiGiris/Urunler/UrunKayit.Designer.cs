@@ -43,22 +43,39 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnTemizle = new System.Windows.Forms.Button();
-            this.ScHastane = new System.Windows.Forms.SplitContainer();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtGirisTarih = new System.Windows.Forms.DateTimePicker();
-            this.pbResim = new System.Windows.Forms.PictureBox();
-            this.txtAcıklamaTr = new System.Windows.Forms.TextBox();
-            this.txtAcıklamaEng = new System.Windows.Forms.TextBox();
-            this.txtKulSüre = new System.Windows.Forms.TextBox();
+            this.spcUrunKayit = new System.Windows.Forms.SplitContainer();
+            this.TxtParaBirimi = new System.Windows.Forms.ComboBox();
+            this.txtSinifi = new System.Windows.Forms.TextBox();
             this.txtFirmaAdi = new System.Windows.Forms.TextBox();
             this.txtFirmaKodu = new System.Windows.Forms.TextBox();
-            this.txtSinifi = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.ScHastane)).BeginInit();
-            this.ScHastane.Panel1.SuspendLayout();
-            this.ScHastane.SuspendLayout();
+            this.TxtMinFiyat = new System.Windows.Forms.TextBox();
+            this.TxtBirimFiyat = new System.Windows.Forms.TextBox();
+            this.txtKulSüre = new System.Windows.Forms.TextBox();
+            this.txtAcıklamaTr = new System.Windows.Forms.TextBox();
+            this.txtAcıklamaEng = new System.Windows.Forms.TextBox();
+            this.pbResim = new System.Windows.Forms.PictureBox();
+            this.txtGirisTarih = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.Liste = new System.Windows.Forms.DataGridView();
+            this.GMDN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UNSPC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SB = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.KulDisi = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.UBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUTFIYAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUTACIKLAMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UTS = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.spcUrunKayit)).BeginInit();
+            this.spcUrunKayit.Panel1.SuspendLayout();
+            this.spcUrunKayit.Panel2.SuspendLayout();
+            this.spcUrunKayit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbResim)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.SuspendLayout();
             // 
             // btnKaydet
@@ -70,6 +87,7 @@
             this.btnKaydet.Size = new System.Drawing.Size(50, 49);
             this.btnKaydet.TabIndex = 14;
             this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // btnGuncelle
             // 
@@ -92,6 +110,7 @@
             // 
             this.txtUrunId.Location = new System.Drawing.Point(140, 38);
             this.txtUrunId.Name = "txtUrunId";
+            this.txtUrunId.ReadOnly = true;
             this.txtUrunId.Size = new System.Drawing.Size(286, 26);
             this.txtUrunId.TabIndex = 8;
             // 
@@ -205,113 +224,72 @@
             this.btnTemizle.Size = new System.Drawing.Size(50, 49);
             this.btnTemizle.TabIndex = 11;
             this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
-            // ScHastane
+            // spcUrunKayit
             // 
-            this.ScHastane.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ScHastane.Location = new System.Drawing.Point(0, 92);
-            this.ScHastane.Name = "ScHastane";
-            this.ScHastane.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.spcUrunKayit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spcUrunKayit.Location = new System.Drawing.Point(0, 92);
+            this.spcUrunKayit.Name = "spcUrunKayit";
+            this.spcUrunKayit.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // ScHastane.Panel1
+            // spcUrunKayit.Panel1
             // 
-            this.ScHastane.Panel1.Controls.Add(this.txtSinifi);
-            this.ScHastane.Panel1.Controls.Add(this.txtFirmaAdi);
-            this.ScHastane.Panel1.Controls.Add(this.txtFirmaKodu);
-            this.ScHastane.Panel1.Controls.Add(this.txtKulSüre);
-            this.ScHastane.Panel1.Controls.Add(this.txtAcıklamaTr);
-            this.ScHastane.Panel1.Controls.Add(this.txtAcıklamaEng);
-            this.ScHastane.Panel1.Controls.Add(this.pbResim);
-            this.ScHastane.Panel1.Controls.Add(this.txtGirisTarih);
-            this.ScHastane.Panel1.Controls.Add(this.label11);
-            this.ScHastane.Panel1.Controls.Add(this.label10);
-            this.ScHastane.Panel1.Controls.Add(this.txtUrunKodu);
-            this.ScHastane.Panel1.Controls.Add(this.txtUrunId);
-            this.ScHastane.Panel1.Controls.Add(this.label9);
-            this.ScHastane.Panel1.Controls.Add(this.label8);
-            this.ScHastane.Panel1.Controls.Add(this.label7);
-            this.ScHastane.Panel1.Controls.Add(this.label6);
-            this.ScHastane.Panel1.Controls.Add(this.label5);
-            this.ScHastane.Panel1.Controls.Add(this.label4);
-            this.ScHastane.Panel1.Controls.Add(this.label3);
-            this.ScHastane.Panel1.Controls.Add(this.label2);
-            this.ScHastane.Size = new System.Drawing.Size(1354, 594);
-            this.ScHastane.SplitterDistance = 450;
-            this.ScHastane.SplitterWidth = 5;
-            this.ScHastane.TabIndex = 9;
+            this.spcUrunKayit.Panel1.Controls.Add(this.TxtParaBirimi);
+            this.spcUrunKayit.Panel1.Controls.Add(this.txtSinifi);
+            this.spcUrunKayit.Panel1.Controls.Add(this.txtFirmaAdi);
+            this.spcUrunKayit.Panel1.Controls.Add(this.txtFirmaKodu);
+            this.spcUrunKayit.Panel1.Controls.Add(this.TxtMinFiyat);
+            this.spcUrunKayit.Panel1.Controls.Add(this.TxtBirimFiyat);
+            this.spcUrunKayit.Panel1.Controls.Add(this.txtKulSüre);
+            this.spcUrunKayit.Panel1.Controls.Add(this.txtAcıklamaTr);
+            this.spcUrunKayit.Panel1.Controls.Add(this.txtAcıklamaEng);
+            this.spcUrunKayit.Panel1.Controls.Add(this.pbResim);
+            this.spcUrunKayit.Panel1.Controls.Add(this.txtGirisTarih);
+            this.spcUrunKayit.Panel1.Controls.Add(this.label11);
+            this.spcUrunKayit.Panel1.Controls.Add(this.label10);
+            this.spcUrunKayit.Panel1.Controls.Add(this.txtUrunKodu);
+            this.spcUrunKayit.Panel1.Controls.Add(this.txtUrunId);
+            this.spcUrunKayit.Panel1.Controls.Add(this.label9);
+            this.spcUrunKayit.Panel1.Controls.Add(this.label8);
+            this.spcUrunKayit.Panel1.Controls.Add(this.label7);
+            this.spcUrunKayit.Panel1.Controls.Add(this.label6);
+            this.spcUrunKayit.Panel1.Controls.Add(this.label13);
+            this.spcUrunKayit.Panel1.Controls.Add(this.label12);
+            this.spcUrunKayit.Panel1.Controls.Add(this.label5);
+            this.spcUrunKayit.Panel1.Controls.Add(this.label4);
+            this.spcUrunKayit.Panel1.Controls.Add(this.label3);
+            this.spcUrunKayit.Panel1.Controls.Add(this.label2);
             // 
-            // label1
+            // spcUrunKayit.Panel2
             // 
-            this.label1.BackColor = System.Drawing.Color.SteelBlue;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1354, 92);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Ürün Kayıt";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.spcUrunKayit.Panel2.Controls.Add(this.Liste);
+            this.spcUrunKayit.Size = new System.Drawing.Size(1354, 594);
+            this.spcUrunKayit.SplitterDistance = 450;
+            this.spcUrunKayit.SplitterWidth = 5;
+            this.spcUrunKayit.TabIndex = 9;
             // 
-            // label10
+            // TxtParaBirimi
             // 
-            this.label10.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label10.Location = new System.Drawing.Point(597, 86);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(100, 40);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Firma Adı";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TxtParaBirimi.FormattingEnabled = true;
+            this.TxtParaBirimi.Items.AddRange(new object[] {
+            "USD",
+            "EUR",
+            "TRY",
+            "GBP",
+            "RUB",
+            "JBY"});
+            this.TxtParaBirimi.Location = new System.Drawing.Point(442, 393);
+            this.TxtParaBirimi.Name = "TxtParaBirimi";
+            this.TxtParaBirimi.Size = new System.Drawing.Size(121, 28);
+            this.TxtParaBirimi.TabIndex = 21;
             // 
-            // label11
+            // txtSinifi
             // 
-            this.label11.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label11.Location = new System.Drawing.Point(1128, 327);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(100, 40);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Resim Ekle";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // txtGirisTarih
-            // 
-            this.txtGirisTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtGirisTarih.Location = new System.Drawing.Point(160, 271);
-            this.txtGirisTarih.Name = "txtGirisTarih";
-            this.txtGirisTarih.Size = new System.Drawing.Size(200, 26);
-            this.txtGirisTarih.TabIndex = 13;
-            // 
-            // pbResim
-            // 
-            this.pbResim.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbResim.Location = new System.Drawing.Point(1059, 59);
-            this.pbResim.Name = "pbResim";
-            this.pbResim.Size = new System.Drawing.Size(235, 216);
-            this.pbResim.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbResim.TabIndex = 14;
-            this.pbResim.TabStop = false;
-            // 
-            // txtAcıklamaTr
-            // 
-            this.txtAcıklamaTr.Location = new System.Drawing.Point(140, 210);
-            this.txtAcıklamaTr.Name = "txtAcıklamaTr";
-            this.txtAcıklamaTr.Size = new System.Drawing.Size(879, 26);
-            this.txtAcıklamaTr.TabIndex = 16;
-            // 
-            // txtAcıklamaEng
-            // 
-            this.txtAcıklamaEng.Location = new System.Drawing.Point(140, 155);
-            this.txtAcıklamaEng.Name = "txtAcıklamaEng";
-            this.txtAcıklamaEng.Size = new System.Drawing.Size(879, 26);
-            this.txtAcıklamaEng.TabIndex = 15;
-            // 
-            // txtKulSüre
-            // 
-            this.txtKulSüre.Location = new System.Drawing.Point(140, 341);
-            this.txtKulSüre.Name = "txtKulSüre";
-            this.txtKulSüre.Size = new System.Drawing.Size(286, 26);
-            this.txtKulSüre.TabIndex = 17;
+            this.txtSinifi.Location = new System.Drawing.Point(733, 273);
+            this.txtSinifi.Name = "txtSinifi";
+            this.txtSinifi.Size = new System.Drawing.Size(286, 26);
+            this.txtSinifi.TabIndex = 20;
             // 
             // txtFirmaAdi
             // 
@@ -327,12 +305,200 @@
             this.txtFirmaKodu.Size = new System.Drawing.Size(286, 26);
             this.txtFirmaKodu.TabIndex = 18;
             // 
-            // txtSinifi
+            // TxtMinFiyat
             // 
-            this.txtSinifi.Location = new System.Drawing.Point(733, 273);
-            this.txtSinifi.Name = "txtSinifi";
-            this.txtSinifi.Size = new System.Drawing.Size(286, 26);
-            this.txtSinifi.TabIndex = 20;
+            this.TxtMinFiyat.Location = new System.Drawing.Point(140, 425);
+            this.TxtMinFiyat.Name = "TxtMinFiyat";
+            this.TxtMinFiyat.Size = new System.Drawing.Size(286, 26);
+            this.TxtMinFiyat.TabIndex = 17;
+            // 
+            // TxtBirimFiyat
+            // 
+            this.TxtBirimFiyat.Location = new System.Drawing.Point(140, 393);
+            this.TxtBirimFiyat.Name = "TxtBirimFiyat";
+            this.TxtBirimFiyat.Size = new System.Drawing.Size(286, 26);
+            this.TxtBirimFiyat.TabIndex = 17;
+            // 
+            // txtKulSüre
+            // 
+            this.txtKulSüre.Location = new System.Drawing.Point(140, 341);
+            this.txtKulSüre.Name = "txtKulSüre";
+            this.txtKulSüre.Size = new System.Drawing.Size(286, 26);
+            this.txtKulSüre.TabIndex = 17;
+            // 
+            // txtAcıklamaTr
+            // 
+            this.txtAcıklamaTr.Location = new System.Drawing.Point(140, 210);
+            this.txtAcıklamaTr.Name = "txtAcıklamaTr";
+            this.txtAcıklamaTr.Size = new System.Drawing.Size(879, 26);
+            this.txtAcıklamaTr.TabIndex = 16;
+            // 
+            // txtAcıklamaEng
+            // 
+            this.txtAcıklamaEng.Location = new System.Drawing.Point(140, 155);
+            this.txtAcıklamaEng.Name = "txtAcıklamaEng";
+            this.txtAcıklamaEng.Size = new System.Drawing.Size(879, 26);
+            this.txtAcıklamaEng.TabIndex = 15;
+            // 
+            // pbResim
+            // 
+            this.pbResim.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbResim.Location = new System.Drawing.Point(1059, 59);
+            this.pbResim.Name = "pbResim";
+            this.pbResim.Size = new System.Drawing.Size(235, 216);
+            this.pbResim.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbResim.TabIndex = 14;
+            this.pbResim.TabStop = false;
+            // 
+            // txtGirisTarih
+            // 
+            this.txtGirisTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtGirisTarih.Location = new System.Drawing.Point(160, 271);
+            this.txtGirisTarih.Name = "txtGirisTarih";
+            this.txtGirisTarih.Size = new System.Drawing.Size(200, 26);
+            this.txtGirisTarih.TabIndex = 13;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label11.Location = new System.Drawing.Point(1128, 327);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(100, 40);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Resim Ekle";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label10.Location = new System.Drawing.Point(597, 86);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(100, 40);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Firma Adı";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label13.Location = new System.Drawing.Point(12, 418);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(100, 40);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Min Fiyat";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label12.Location = new System.Drawing.Point(12, 379);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(100, 40);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Birim Fiyat";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Liste
+            // 
+            this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.GMDN,
+            this.UNSPC,
+            this.SB,
+            this.KulDisi,
+            this.UBB,
+            this.SUT,
+            this.SUTFIYAT,
+            this.SUTACIKLAMA,
+            this.UTS});
+            this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Liste.Location = new System.Drawing.Point(0, 0);
+            this.Liste.Name = "Liste";
+            this.Liste.RowHeadersWidth = 62;
+            this.Liste.RowTemplate.Height = 28;
+            this.Liste.Size = new System.Drawing.Size(1354, 139);
+            this.Liste.TabIndex = 0;
+            // 
+            // GMDN
+            // 
+            this.GMDN.HeaderText = "GMDN";
+            this.GMDN.MinimumWidth = 8;
+            this.GMDN.Name = "GMDN";
+            this.GMDN.Width = 150;
+            // 
+            // UNSPC
+            // 
+            this.UNSPC.HeaderText = "UNSPC";
+            this.UNSPC.MinimumWidth = 8;
+            this.UNSPC.Name = "UNSPC";
+            this.UNSPC.Width = 150;
+            // 
+            // SB
+            // 
+            this.SB.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SB.HeaderText = "SB";
+            this.SB.MinimumWidth = 8;
+            this.SB.Name = "SB";
+            this.SB.Width = 37;
+            // 
+            // KulDisi
+            // 
+            this.KulDisi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.KulDisi.HeaderText = "Kul Disi";
+            this.KulDisi.MinimumWidth = 8;
+            this.KulDisi.Name = "KulDisi";
+            this.KulDisi.Width = 67;
+            // 
+            // UBB
+            // 
+            this.UBB.HeaderText = "UBB";
+            this.UBB.MinimumWidth = 8;
+            this.UBB.Name = "UBB";
+            this.UBB.Width = 150;
+            // 
+            // SUT
+            // 
+            this.SUT.HeaderText = "SUT";
+            this.SUT.MinimumWidth = 8;
+            this.SUT.Name = "SUT";
+            this.SUT.Width = 150;
+            // 
+            // SUTFIYAT
+            // 
+            this.SUTFIYAT.HeaderText = "SUTFIYAT";
+            this.SUTFIYAT.MinimumWidth = 8;
+            this.SUTFIYAT.Name = "SUTFIYAT";
+            this.SUTFIYAT.Width = 150;
+            // 
+            // SUTACIKLAMA
+            // 
+            this.SUTACIKLAMA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SUTACIKLAMA.HeaderText = "SUTACIKLAMA";
+            this.SUTACIKLAMA.MinimumWidth = 8;
+            this.SUTACIKLAMA.Name = "SUTACIKLAMA";
+            // 
+            // UTS
+            // 
+            this.UTS.HeaderText = "UTS";
+            this.UTS.MinimumWidth = 8;
+            this.UTS.Name = "UTS";
+            this.UTS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.UTS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.UTS.Width = 150;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.SteelBlue;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1354, 92);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Ürün Kayıt";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UrunKayit
             // 
@@ -343,17 +509,19 @@
             this.Controls.Add(this.btnGuncelle);
             this.Controls.Add(this.btnKapat);
             this.Controls.Add(this.btnTemizle);
-            this.Controls.Add(this.ScHastane);
+            this.Controls.Add(this.spcUrunKayit);
             this.Controls.Add(this.btnSil);
             this.Controls.Add(this.label1);
             this.Name = "UrunKayit";
             this.Text = "UrunKayit";
             this.Load += new System.EventHandler(this.UrunKayit_Load);
-            this.ScHastane.Panel1.ResumeLayout(false);
-            this.ScHastane.Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ScHastane)).EndInit();
-            this.ScHastane.ResumeLayout(false);
+            this.spcUrunKayit.Panel1.ResumeLayout(false);
+            this.spcUrunKayit.Panel1.PerformLayout();
+            this.spcUrunKayit.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spcUrunKayit)).EndInit();
+            this.spcUrunKayit.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbResim)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -375,7 +543,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnTemizle;
-        private System.Windows.Forms.SplitContainer ScHastane;
+        private System.Windows.Forms.SplitContainer spcUrunKayit;
         private System.Windows.Forms.TextBox txtSinifi;
         private System.Windows.Forms.TextBox txtFirmaAdi;
         private System.Windows.Forms.TextBox txtFirmaKodu;
@@ -387,5 +555,20 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox TxtParaBirimi;
+        private System.Windows.Forms.TextBox TxtMinFiyat;
+        private System.Windows.Forms.TextBox TxtBirimFiyat;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridView Liste;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GMDN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UNSPC;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn SB;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn KulDisi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SUT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SUTFIYAT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SUTACIKLAMA;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn UTS;
     }
 }
