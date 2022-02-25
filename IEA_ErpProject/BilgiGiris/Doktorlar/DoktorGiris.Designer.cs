@@ -47,26 +47,6 @@
             this.btnKapat = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.Liste = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnTemizle = new System.Windows.Forms.Button();
-            this.ScDoktor = new System.Windows.Forms.SplitContainer();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.TxtHastane2 = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.TxtHastane3 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtTelefon2 = new System.Windows.Forms.MaskedTextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.TxtGsm = new System.Windows.Forms.MaskedTextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtDTarih = new System.Windows.Forms.DateTimePicker();
-            this.label15 = new System.Windows.Forms.Label();
-            this.TxtEmail = new System.Windows.Forms.TextBox();
-            this.TxtUnvan = new System.Windows.Forms.ComboBox();
             this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Adi = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,6 +55,26 @@
             this.Gsm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sehir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnTemizle = new System.Windows.Forms.Button();
+            this.ScDoktor = new System.Windows.Forms.SplitContainer();
+            this.txtDTarih = new System.Windows.Forms.DateTimePicker();
+            this.TxtGsm = new System.Windows.Forms.MaskedTextBox();
+            this.txtTelefon2 = new System.Windows.Forms.MaskedTextBox();
+            this.TxtHastane3 = new System.Windows.Forms.ComboBox();
+            this.TxtHastane2 = new System.Windows.Forms.ComboBox();
+            this.TxtUnvan = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.TxtEmail = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ScDoktor)).BeginInit();
             this.ScDoktor.Panel1.SuspendLayout();
@@ -279,6 +279,69 @@
             this.Liste.TabIndex = 0;
             this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
+            // Sira
+            // 
+            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Sira.HeaderText = "Sira";
+            this.Sira.MinimumWidth = 8;
+            this.Sira.Name = "Sira";
+            this.Sira.Width = 73;
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 8;
+            this.Id.Name = "Id";
+            this.Id.Width = 59;
+            // 
+            // Adi
+            // 
+            this.Adi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Adi.HeaderText = "Doktor Adi";
+            this.Adi.MinimumWidth = 8;
+            this.Adi.Name = "Adi";
+            // 
+            // Telefon1
+            // 
+            this.Telefon1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Telefon1.HeaderText = "Telefon-1";
+            this.Telefon1.MinimumWidth = 8;
+            this.Telefon1.Name = "Telefon1";
+            this.Telefon1.Width = 112;
+            // 
+            // Telefon2
+            // 
+            this.Telefon2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Telefon2.HeaderText = "Telefon-2";
+            this.Telefon2.MinimumWidth = 8;
+            this.Telefon2.Name = "Telefon2";
+            this.Telefon2.Width = 112;
+            // 
+            // Gsm
+            // 
+            this.Gsm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Gsm.HeaderText = "Gsm";
+            this.Gsm.MinimumWidth = 8;
+            this.Gsm.Name = "Gsm";
+            this.Gsm.Width = 79;
+            // 
+            // Email
+            // 
+            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 8;
+            this.Email.Name = "Email";
+            this.Email.Width = 84;
+            // 
+            // Sehir
+            // 
+            this.Sehir.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Sehir.HeaderText = "Şehir";
+            this.Sehir.MinimumWidth = 8;
+            this.Sehir.Name = "Sehir";
+            this.Sehir.Width = 82;
+            // 
             // label5
             // 
             this.label5.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -379,6 +442,123 @@
             this.ScDoktor.SplitterWidth = 5;
             this.ScDoktor.TabIndex = 9;
             // 
+            // txtDTarih
+            // 
+            this.txtDTarih.Location = new System.Drawing.Point(602, 365);
+            this.txtDTarih.Name = "txtDTarih";
+            this.txtDTarih.Size = new System.Drawing.Size(200, 26);
+            this.txtDTarih.TabIndex = 18;
+            // 
+            // TxtGsm
+            // 
+            this.TxtGsm.Location = new System.Drawing.Point(602, 317);
+            this.TxtGsm.Mask = "(999) 000-0000";
+            this.TxtGsm.Name = "TxtGsm";
+            this.TxtGsm.Size = new System.Drawing.Size(127, 26);
+            this.TxtGsm.TabIndex = 14;
+            // 
+            // txtTelefon2
+            // 
+            this.txtTelefon2.Location = new System.Drawing.Point(602, 261);
+            this.txtTelefon2.Mask = "(999) 000-0000";
+            this.txtTelefon2.Name = "txtTelefon2";
+            this.txtTelefon2.Size = new System.Drawing.Size(127, 26);
+            this.txtTelefon2.TabIndex = 14;
+            // 
+            // TxtHastane3
+            // 
+            this.TxtHastane3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtHastane3.FormattingEnabled = true;
+            this.TxtHastane3.Location = new System.Drawing.Point(602, 141);
+            this.TxtHastane3.Name = "TxtHastane3";
+            this.TxtHastane3.Size = new System.Drawing.Size(206, 28);
+            this.TxtHastane3.TabIndex = 11;
+            // 
+            // TxtHastane2
+            // 
+            this.TxtHastane2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtHastane2.FormattingEnabled = true;
+            this.TxtHastane2.Location = new System.Drawing.Point(602, 85);
+            this.TxtHastane2.Name = "TxtHastane2";
+            this.TxtHastane2.Size = new System.Drawing.Size(206, 28);
+            this.TxtHastane2.TabIndex = 11;
+            // 
+            // TxtUnvan
+            // 
+            this.TxtUnvan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtUnvan.FormattingEnabled = true;
+            this.TxtUnvan.Location = new System.Drawing.Point(144, 37);
+            this.TxtUnvan.Name = "TxtUnvan";
+            this.TxtUnvan.Size = new System.Drawing.Size(206, 28);
+            this.TxtUnvan.TabIndex = 11;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label11.Location = new System.Drawing.Point(461, 134);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(100, 40);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Hastane-3";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // TxtEmail
+            // 
+            this.TxtEmail.Location = new System.Drawing.Point(589, 410);
+            this.TxtEmail.Name = "TxtEmail";
+            this.TxtEmail.Size = new System.Drawing.Size(286, 26);
+            this.TxtEmail.TabIndex = 9;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label10.Location = new System.Drawing.Point(461, 79);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(100, 40);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Hastane-2";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label15
+            // 
+            this.label15.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label15.Location = new System.Drawing.Point(461, 404);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(100, 40);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "Email";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label14
+            // 
+            this.label14.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label14.Location = new System.Drawing.Point(461, 360);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(100, 40);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Doğum Tarihi";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label13.Location = new System.Drawing.Point(461, 310);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(100, 40);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Gsm";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label12.Location = new System.Drawing.Point(461, 254);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(100, 40);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Telefon-2";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.SteelBlue;
@@ -391,186 +571,6 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Doktor Giriş";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label10.Location = new System.Drawing.Point(461, 79);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(100, 40);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Hastane-2";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // TxtHastane2
-            // 
-            this.TxtHastane2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtHastane2.FormattingEnabled = true;
-            this.TxtHastane2.Location = new System.Drawing.Point(602, 85);
-            this.TxtHastane2.Name = "TxtHastane2";
-            this.TxtHastane2.Size = new System.Drawing.Size(206, 28);
-            this.TxtHastane2.TabIndex = 11;
-            // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label11.Location = new System.Drawing.Point(461, 134);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(100, 40);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Hastane-3";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // TxtHastane3
-            // 
-            this.TxtHastane3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtHastane3.FormattingEnabled = true;
-            this.TxtHastane3.Location = new System.Drawing.Point(602, 141);
-            this.TxtHastane3.Name = "TxtHastane3";
-            this.TxtHastane3.Size = new System.Drawing.Size(206, 28);
-            this.TxtHastane3.TabIndex = 11;
-            // 
-            // label12
-            // 
-            this.label12.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label12.Location = new System.Drawing.Point(461, 254);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(100, 40);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "Telefon-2";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtTelefon2
-            // 
-            this.txtTelefon2.Location = new System.Drawing.Point(602, 261);
-            this.txtTelefon2.Mask = "(999) 000-0000";
-            this.txtTelefon2.Name = "txtTelefon2";
-            this.txtTelefon2.Size = new System.Drawing.Size(127, 26);
-            this.txtTelefon2.TabIndex = 14;
-            // 
-            // label13
-            // 
-            this.label13.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label13.Location = new System.Drawing.Point(461, 310);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(100, 40);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "Gsm";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // TxtGsm
-            // 
-            this.TxtGsm.Location = new System.Drawing.Point(602, 317);
-            this.TxtGsm.Mask = "(999) 000-0000";
-            this.TxtGsm.Name = "TxtGsm";
-            this.TxtGsm.Size = new System.Drawing.Size(127, 26);
-            this.TxtGsm.TabIndex = 14;
-            // 
-            // label14
-            // 
-            this.label14.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label14.Location = new System.Drawing.Point(461, 360);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(100, 40);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Doğum Tarihi";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtDTarih
-            // 
-            this.txtDTarih.Location = new System.Drawing.Point(602, 365);
-            this.txtDTarih.Name = "txtDTarih";
-            this.txtDTarih.Size = new System.Drawing.Size(200, 26);
-            this.txtDTarih.TabIndex = 18;
-            // 
-            // label15
-            // 
-            this.label15.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label15.Location = new System.Drawing.Point(461, 404);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(100, 40);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "Email";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // TxtEmail
-            // 
-            this.TxtEmail.Location = new System.Drawing.Point(589, 410);
-            this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(286, 26);
-            this.TxtEmail.TabIndex = 9;
-            // 
-            // TxtUnvan
-            // 
-            this.TxtUnvan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtUnvan.FormattingEnabled = true;
-            this.TxtUnvan.Location = new System.Drawing.Point(144, 37);
-            this.TxtUnvan.Name = "TxtUnvan";
-            this.TxtUnvan.Size = new System.Drawing.Size(206, 28);
-            this.TxtUnvan.TabIndex = 11;
-            // 
-            // Sira
-            // 
-            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Sira.HeaderText = "Sira";
-            this.Sira.MinimumWidth = 8;
-            this.Sira.Name = "Sira";
-            this.Sira.Width = 73;
-            // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 8;
-            this.Id.Name = "Id";
-            this.Id.Width = 59;
-            // 
-            // Adi
-            // 
-            this.Adi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Adi.HeaderText = "Doktor Adi";
-            this.Adi.MinimumWidth = 8;
-            this.Adi.Name = "Adi";
-            // 
-            // Telefon1
-            // 
-            this.Telefon1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Telefon1.HeaderText = "Telefon-1";
-            this.Telefon1.MinimumWidth = 8;
-            this.Telefon1.Name = "Telefon1";
-            this.Telefon1.Width = 112;
-            // 
-            // Telefon2
-            // 
-            this.Telefon2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Telefon2.HeaderText = "Telefon-2";
-            this.Telefon2.MinimumWidth = 8;
-            this.Telefon2.Name = "Telefon2";
-            this.Telefon2.Width = 112;
-            // 
-            // Gsm
-            // 
-            this.Gsm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Gsm.HeaderText = "Gsm";
-            this.Gsm.MinimumWidth = 8;
-            this.Gsm.Name = "Gsm";
-            this.Gsm.Width = 79;
-            // 
-            // Email
-            // 
-            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 8;
-            this.Email.Name = "Email";
-            this.Email.Width = 84;
-            // 
-            // Sehir
-            // 
-            this.Sehir.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Sehir.HeaderText = "Şehir";
-            this.Sehir.MinimumWidth = 8;
-            this.Sehir.Name = "Sehir";
-            this.Sehir.Width = 82;
             // 
             // DoktorGiris
             // 

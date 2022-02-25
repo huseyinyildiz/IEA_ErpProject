@@ -12,18 +12,20 @@ namespace IEA_ErpProject.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class tblUrunKayitUst
+    public partial class tblUrunGirisUst
     {
         public int Id { get; set; }
-        public string UrunKodu { get; set; }
-        public string AciklamaTr { get; set; }
-        public string AciklamaEng { get; set; }
+        public Nullable<int> GirisId { get; set; }
+        public string CariTip { get; set; }
+        public string CariAdi { get; set; }
+        public Nullable<int> CariId { get; set; }
+        public string GirisTuru { get; set; }
+        public string FaturaNo { get; set; }
         public Nullable<System.DateTime> GirisTarih { get; set; }
-        public byte[] Resim { get; set; }
-        public Nullable<int> Uid { get; set; }
-        public Nullable<int> FirmaId { get; set; }
-        public Nullable<int> KullanimSuresi { get; set; }
-    
-        public virtual tblFirmalar tblFirmalar { get; set; }
+        public Nullable<bool> isDeleted { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<int> CreatedUser { get; set; }
+        public Nullable<System.DateTime> UpdateDate { get; set; }
+        public Nullable<int> UpdateUser { get; set; }
     }
 }

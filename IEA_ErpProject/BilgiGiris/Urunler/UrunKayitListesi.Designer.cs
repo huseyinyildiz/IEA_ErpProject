@@ -38,6 +38,7 @@
             this.Firma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UrunKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AcikTr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Uid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlUst.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.SuspendLayout();
@@ -93,7 +94,8 @@
             this.Id,
             this.Firma,
             this.UrunKodu,
-            this.AcikTr});
+            this.AcikTr,
+            this.Uid});
             this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Liste.Location = new System.Drawing.Point(0, 105);
             this.Liste.Name = "Liste";
@@ -101,6 +103,7 @@
             this.Liste.RowTemplate.Height = 28;
             this.Liste.Size = new System.Drawing.Size(1532, 537);
             this.Liste.TabIndex = 1;
+            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
             // Sira
             // 
@@ -139,6 +142,14 @@
             this.AcikTr.MinimumWidth = 8;
             this.AcikTr.Name = "AcikTr";
             // 
+            // Uid
+            // 
+            this.Uid.HeaderText = "Uid";
+            this.Uid.MinimumWidth = 8;
+            this.Uid.Name = "Uid";
+            this.Uid.Visible = false;
+            this.Uid.Width = 150;
+            // 
             // UrunKayitListesi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -168,5 +179,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Firma;
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunKodu;
         private System.Windows.Forms.DataGridViewTextBoxColumn AcikTr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Uid;
     }
 }

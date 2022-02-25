@@ -28,21 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnKaydet = new System.Windows.Forms.Button();
-            this.btnGuncelle = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtUrunKodu = new System.Windows.Forms.TextBox();
             this.txtUrunId = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnSil = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnKapat = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnTemizle = new System.Windows.Forms.Button();
             this.spcUrunKayit = new System.Windows.Forms.SplitContainer();
             this.TxtParaBirimi = new System.Windows.Forms.ComboBox();
             this.txtSinifi = new System.Windows.Forms.TextBox();
@@ -60,6 +57,15 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.Liste = new System.Windows.Forms.DataGridView();
+            this.pnlListe = new System.Windows.Forms.Panel();
+            this.BtnAddListeRow = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnKaydet = new System.Windows.Forms.Button();
+            this.btnGuncelle = new System.Windows.Forms.Button();
+            this.btnKapat = new System.Windows.Forms.Button();
+            this.btnTemizle = new System.Windows.Forms.Button();
+            this.btnSil = new System.Windows.Forms.Button();
+            this.btnRowsDelete = new System.Windows.Forms.Button();
             this.GMDN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UNSPC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SB = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -69,35 +75,17 @@
             this.SUTFIYAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SUTACIKLAMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UTS = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Durum = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etiketId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.spcUrunKayit)).BeginInit();
             this.spcUrunKayit.Panel1.SuspendLayout();
             this.spcUrunKayit.Panel2.SuspendLayout();
             this.spcUrunKayit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbResim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
+            this.pnlListe.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnKaydet
-            // 
-            this.btnKaydet.BackgroundImage = global::IEA_ErpProject.Properties.Resources.Save_icon64x64;
-            this.btnKaydet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnKaydet.Location = new System.Drawing.Point(16, 25);
-            this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(50, 49);
-            this.btnKaydet.TabIndex = 14;
-            this.btnKaydet.UseVisualStyleBackColor = true;
-            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
-            // 
-            // btnGuncelle
-            // 
-            this.btnGuncelle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.Update32x32;
-            this.btnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuncelle.Location = new System.Drawing.Point(72, 25);
-            this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(50, 49);
-            this.btnGuncelle.TabIndex = 13;
-            this.btnGuncelle.UseVisualStyleBackColor = true;
             // 
             // txtUrunKodu
             // 
@@ -134,16 +122,6 @@
             this.label8.Text = "Sınfı";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnSil
-            // 
-            this.btnSil.BackgroundImage = global::IEA_ErpProject.Properties.Resources.cop24x24;
-            this.btnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSil.Location = new System.Drawing.Point(128, 25);
-            this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(50, 49);
-            this.btnSil.TabIndex = 12;
-            this.btnSil.UseVisualStyleBackColor = true;
-            // 
             // label7
             // 
             this.label7.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -153,17 +131,6 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Ürün Kodu";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btnKapat
-            // 
-            this.btnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit_64;
-            this.btnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnKapat.Location = new System.Drawing.Point(1277, 25);
-            this.btnKapat.Name = "btnKapat";
-            this.btnKapat.Size = new System.Drawing.Size(50, 49);
-            this.btnKapat.TabIndex = 10;
-            this.btnKapat.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -215,17 +182,6 @@
             this.label2.Text = "Urun Id";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnTemizle
-            // 
-            this.btnTemizle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.png_transparent_dustpan_computer_icons_iconfinder_clear_miscellaneous_angle_photography;
-            this.btnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTemizle.Location = new System.Drawing.Point(184, 25);
-            this.btnTemizle.Name = "btnTemizle";
-            this.btnTemizle.Size = new System.Drawing.Size(50, 49);
-            this.btnTemizle.TabIndex = 11;
-            this.btnTemizle.UseVisualStyleBackColor = true;
-            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
-            // 
             // spcUrunKayit
             // 
             this.spcUrunKayit.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -264,6 +220,7 @@
             // spcUrunKayit.Panel2
             // 
             this.spcUrunKayit.Panel2.Controls.Add(this.Liste);
+            this.spcUrunKayit.Panel2.Controls.Add(this.pnlListe);
             this.spcUrunKayit.Size = new System.Drawing.Size(1354, 594);
             this.spcUrunKayit.SplitterDistance = 450;
             this.spcUrunKayit.SplitterWidth = 5;
@@ -411,28 +368,134 @@
             this.SUT,
             this.SUTFIYAT,
             this.SUTACIKLAMA,
-            this.UTS});
+            this.UTS,
+            this.Durum,
+            this.Id});
             this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Liste.Location = new System.Drawing.Point(0, 0);
+            this.Liste.Location = new System.Drawing.Point(0, 46);
             this.Liste.Name = "Liste";
             this.Liste.RowHeadersWidth = 62;
             this.Liste.RowTemplate.Height = 28;
-            this.Liste.Size = new System.Drawing.Size(1354, 139);
+            this.Liste.Size = new System.Drawing.Size(1354, 93);
             this.Liste.TabIndex = 0;
+            // 
+            // pnlListe
+            // 
+            this.pnlListe.BackColor = System.Drawing.Color.IndianRed;
+            this.pnlListe.Controls.Add(this.etiketId);
+            this.pnlListe.Controls.Add(this.btnRowsDelete);
+            this.pnlListe.Controls.Add(this.BtnAddListeRow);
+            this.pnlListe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlListe.Location = new System.Drawing.Point(0, 0);
+            this.pnlListe.Name = "pnlListe";
+            this.pnlListe.Size = new System.Drawing.Size(1354, 46);
+            this.pnlListe.TabIndex = 1;
+            // 
+            // BtnAddListeRow
+            // 
+            this.BtnAddListeRow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnAddListeRow.BackgroundImage = global::IEA_ErpProject.Properties.Resources.plus;
+            this.BtnAddListeRow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnAddListeRow.Location = new System.Drawing.Point(1277, 3);
+            this.BtnAddListeRow.Name = "BtnAddListeRow";
+            this.BtnAddListeRow.Size = new System.Drawing.Size(50, 37);
+            this.BtnAddListeRow.TabIndex = 0;
+            this.BtnAddListeRow.UseVisualStyleBackColor = true;
+            this.BtnAddListeRow.Click += new System.EventHandler(this.BtnAddListeRow_Click);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.SteelBlue;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1354, 92);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Ürün Kayıt";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnKaydet
+            // 
+            this.btnKaydet.BackgroundImage = global::IEA_ErpProject.Properties.Resources.Save_icon64x64;
+            this.btnKaydet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnKaydet.Location = new System.Drawing.Point(16, 25);
+            this.btnKaydet.Name = "btnKaydet";
+            this.btnKaydet.Size = new System.Drawing.Size(50, 49);
+            this.btnKaydet.TabIndex = 14;
+            this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
+            // 
+            // btnGuncelle
+            // 
+            this.btnGuncelle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.Update32x32;
+            this.btnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGuncelle.Location = new System.Drawing.Point(72, 25);
+            this.btnGuncelle.Name = "btnGuncelle";
+            this.btnGuncelle.Size = new System.Drawing.Size(50, 49);
+            this.btnGuncelle.TabIndex = 13;
+            this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
+            // 
+            // btnKapat
+            // 
+            this.btnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit_64;
+            this.btnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnKapat.Location = new System.Drawing.Point(1277, 25);
+            this.btnKapat.Name = "btnKapat";
+            this.btnKapat.Size = new System.Drawing.Size(50, 49);
+            this.btnKapat.TabIndex = 10;
+            this.btnKapat.UseVisualStyleBackColor = true;
+            // 
+            // btnTemizle
+            // 
+            this.btnTemizle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.png_transparent_dustpan_computer_icons_iconfinder_clear_miscellaneous_angle_photography;
+            this.btnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTemizle.Location = new System.Drawing.Point(184, 25);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.Size = new System.Drawing.Size(50, 49);
+            this.btnTemizle.TabIndex = 11;
+            this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
+            // 
+            // btnSil
+            // 
+            this.btnSil.BackgroundImage = global::IEA_ErpProject.Properties.Resources.cop24x24;
+            this.btnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSil.Location = new System.Drawing.Point(128, 25);
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(50, 49);
+            this.btnSil.TabIndex = 12;
+            this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
+            // 
+            // btnRowsDelete
+            // 
+            this.btnRowsDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRowsDelete.Location = new System.Drawing.Point(1183, 7);
+            this.btnRowsDelete.Name = "btnRowsDelete";
+            this.btnRowsDelete.Size = new System.Drawing.Size(88, 33);
+            this.btnRowsDelete.TabIndex = 1;
+            this.btnRowsDelete.Text = "Satır Sil";
+            this.btnRowsDelete.UseVisualStyleBackColor = true;
+            this.btnRowsDelete.Click += new System.EventHandler(this.btnRowsDelete_Click);
             // 
             // GMDN
             // 
+            this.GMDN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.GMDN.HeaderText = "GMDN";
             this.GMDN.MinimumWidth = 8;
             this.GMDN.Name = "GMDN";
-            this.GMDN.Width = 150;
+            this.GMDN.Width = 94;
             // 
             // UNSPC
             // 
+            this.UNSPC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.UNSPC.HeaderText = "UNSPC";
             this.UNSPC.MinimumWidth = 8;
             this.UNSPC.Name = "UNSPC";
-            this.UNSPC.Width = 150;
             // 
             // SB
             // 
@@ -452,24 +515,30 @@
             // 
             // UBB
             // 
+            this.UBB.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.UBB.HeaderText = "UBB";
             this.UBB.MinimumWidth = 8;
             this.UBB.Name = "UBB";
-            this.UBB.Width = 150;
+            this.UBB.Width = 79;
             // 
             // SUT
             // 
+            this.SUT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.SUT.HeaderText = "SUT";
             this.SUT.MinimumWidth = 8;
             this.SUT.Name = "SUT";
-            this.SUT.Width = 150;
+            this.SUT.Width = 77;
             // 
             // SUTFIYAT
             // 
+            this.SUTFIYAT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.SUTFIYAT.DefaultCellStyle = dataGridViewCellStyle1;
             this.SUTFIYAT.HeaderText = "SUTFIYAT";
             this.SUTFIYAT.MinimumWidth = 8;
             this.SUTFIYAT.Name = "SUTFIYAT";
-            this.SUTFIYAT.Width = 150;
+            this.SUTFIYAT.Width = 123;
             // 
             // SUTACIKLAMA
             // 
@@ -480,25 +549,43 @@
             // 
             // UTS
             // 
+            this.UTS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.UTS.HeaderText = "UTS";
             this.UTS.MinimumWidth = 8;
             this.UTS.Name = "UTS";
             this.UTS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.UTS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.UTS.Width = 150;
+            this.UTS.Width = 77;
             // 
-            // label1
+            // Durum
             // 
-            this.label1.BackColor = System.Drawing.Color.SteelBlue;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1354, 92);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Ürün Kayıt";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Durum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle2.NullValue = false;
+            this.Durum.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Durum.HeaderText = "Durum";
+            this.Durum.MinimumWidth = 8;
+            this.Durum.Name = "Durum";
+            this.Durum.Width = 63;
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 8;
+            this.Id.Name = "Id";
+            this.Id.Width = 59;
+            // 
+            // etiketId
+            // 
+            this.etiketId.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.etiketId.Location = new System.Drawing.Point(941, 7);
+            this.etiketId.Name = "etiketId";
+            this.etiketId.Size = new System.Drawing.Size(88, 33);
+            this.etiketId.TabIndex = 22;
+            this.etiketId.Text = "***";
+            this.etiketId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UrunKayit
             // 
@@ -522,6 +609,7 @@
             this.spcUrunKayit.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbResim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
+            this.pnlListe.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -561,6 +649,9 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView Liste;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel pnlListe;
+        private System.Windows.Forms.Button BtnAddListeRow;
+        private System.Windows.Forms.Button btnRowsDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn GMDN;
         private System.Windows.Forms.DataGridViewTextBoxColumn UNSPC;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SB;
@@ -570,5 +661,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SUTFIYAT;
         private System.Windows.Forms.DataGridViewTextBoxColumn SUTACIKLAMA;
         private System.Windows.Forms.DataGridViewCheckBoxColumn UTS;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Durum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.Label etiketId;
     }
 }

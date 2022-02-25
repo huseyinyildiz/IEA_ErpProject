@@ -93,10 +93,30 @@ namespace IEA_ErpProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap plus {
+            get {
+                object obj = ResourceManager.GetObject("plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap png_transparent_dustpan_computer_icons_iconfinder_clear_miscellaneous_angle_photography {
             get {
                 object obj = ResourceManager.GetObject("png-transparent-dustpan-computer-icons-iconfinder-clear-miscellaneous-angle-photo" +
                         "graphy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap print_flat {
+            get {
+                object obj = ResourceManager.GetObject("print-flat", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

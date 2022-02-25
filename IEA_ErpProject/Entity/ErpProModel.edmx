@@ -127,6 +127,60 @@
           <Property Name="IsBaslangıcTarih" Type="datetime" />
           <Property Name="IsBitisTarih" Type="datetime" />
         </EntityType>
+        <EntityType Name="tblStokDurum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="100" />
+          <Property Name="UrunKodu" Type="nvarchar" MaxLength="100" />
+          <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokAdet" Type="int" />
+          <Property Name="RafAdet" Type="int" />
+          <Property Name="KonsinyeAdet" Type="int" />
+          <Property Name="SubeAdet" Type="int" />
+          <Property Name="UrunHareketAdet" Type="int" />
+          <Property Name="SutKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="BransNo" Type="nvarchar" MaxLength="250" />
+          <Property Name="Uts" Type="bit" />
+          <Property Name="UTarih" Type="date" />
+          <Property Name="SKTarih" Type="date" />
+        </EntityType>
+        <EntityType Name="tblUrunGirisAlt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GirisId" Type="int" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="100" />
+          <Property Name="UrunKodu" Type="nvarchar" MaxLength="100" />
+          <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="GirisAdet" Type="int" />
+          <Property Name="GirisTarih" Type="date" />
+          <Property Name="BransNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="UtsDurum" Type="bit" />
+          <Property Name="UTarih" Type="date" />
+          <Property Name="SkTarih" Type="date" />
+          <Property Name="Aciklama" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblUrunGirisUst">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GirisId" Type="int" />
+          <Property Name="CariTip" Type="nvarchar" MaxLength="10" />
+          <Property Name="CariAdi" Type="nvarchar" MaxLength="100" />
+          <Property Name="CariId" Type="int" />
+          <Property Name="GirisTuru" Type="nvarchar" MaxLength="20" />
+          <Property Name="FaturaNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="GirisTarih" Type="date" />
+          <Property Name="isDeleted" Type="bit" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="CreatedUser" Type="int" />
+          <Property Name="UpdateDate" Type="date" />
+          <Property Name="UpdateUser" Type="int" />
+        </EntityType>
         <EntityType Name="tblUrunKayitAlt">
           <Key>
             <PropertyRef Name="Id" />
@@ -162,6 +216,7 @@
           <Property Name="Resim" Type="image" />
           <Property Name="Uid" Type="int" />
           <Property Name="FirmaId" Type="int" />
+          <Property Name="KullanimSuresi" Type="int" />
         </EntityType>
         <Association Name="FK_tbFirmalDetaylar_tblDepartmanlar">
           <End Role="tblDepartmanlar" Type="Self.tblDepartmanlar" Multiplicity="0..1" />
@@ -373,6 +428,9 @@
           <EntitySet Name="tblHastaneler" EntityType="Self.tblHastaneler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHastaneTipleri" EntityType="Self.tblHastaneTipleri" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPersoneller" EntityType="Self.tblPersoneller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStokDurum" EntityType="Self.tblStokDurum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUrunGirisAlt" EntityType="Self.tblUrunGirisAlt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUrunGirisUst" EntityType="Self.tblUrunGirisUst" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUrunKayitAlt" EntityType="Self.tblUrunKayitAlt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUrunKayitUst" EntityType="Self.tblUrunKayitUst" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tbFirmalDetaylar_tblDepartmanlar" Association="Self.FK_tbFirmalDetaylar_tblDepartmanlar">
@@ -535,6 +593,9 @@
             <End Role="tblFirmalar" EntitySet="tblFirmalar" />
             <End Role="tblUrunKayitUst" EntitySet="tblUrunKayitUst" />
           </AssociationSet>
+          <EntitySet Name="tblStokDurum" EntityType="ErpPro102SModel.tblStokDurum" />
+          <EntitySet Name="tblUrunGirisAlt" EntityType="ErpPro102SModel.tblUrunGirisAlt" />
+          <EntitySet Name="tblUrunGirisUst" EntityType="ErpPro102SModel.tblUrunGirisUst" />
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -887,6 +948,7 @@
           <Property Name="Resim" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Uid" Type="Int32" />
           <Property Name="FirmaId" Type="Int32" />
+          <Property Name="KullanimSuresi" Type="Int32" />
           <NavigationProperty Name="tblFirmalar" Relationship="ErpPro102SModel.FK_tblUrunKayitUst_tblFirmalar" FromRole="tblUrunKayitUst" ToRole="tblFirmalar" />
         </EntityType>
         <Association Name="FK_tblUrunKayitUst_tblFirmalar">
@@ -901,6 +963,60 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tblStokDurum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Barkod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UrunKodu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LotSeriNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokAdet" Type="Int32" />
+          <Property Name="RafAdet" Type="Int32" />
+          <Property Name="KonsinyeAdet" Type="Int32" />
+          <Property Name="SubeAdet" Type="Int32" />
+          <Property Name="UrunHareketAdet" Type="Int32" />
+          <Property Name="SutKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BransNo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Uts" Type="Boolean" />
+          <Property Name="UTarih" Type="DateTime" Precision="0" />
+          <Property Name="SKTarih" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tblUrunGirisAlt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GirisId" Type="Int32" />
+          <Property Name="Barkod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UrunKodu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LotSeriNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GirisAdet" Type="Int32" />
+          <Property Name="GirisTarih" Type="DateTime" Precision="0" />
+          <Property Name="BransNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UtsDurum" Type="Boolean" />
+          <Property Name="UTarih" Type="DateTime" Precision="0" />
+          <Property Name="SkTarih" Type="DateTime" Precision="0" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblUrunGirisUst">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GirisId" Type="Int32" />
+          <Property Name="CariTip" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CariAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CariId" Type="Int32" />
+          <Property Name="GirisTuru" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FaturaNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="GirisTarih" Type="DateTime" Precision="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="CreatedUser" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdateUser" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1090,6 +1206,7 @@
           <EntitySetMapping Name="tblUrunKayitUst">
             <EntityTypeMapping TypeName="ErpPro102SModel.tblUrunKayitUst">
               <MappingFragment StoreEntitySet="tblUrunKayitUst">
+                <ScalarProperty Name="KullanimSuresi" ColumnName="KullanimSuresi" />
                 <ScalarProperty Name="FirmaId" ColumnName="FirmaId" />
                 <ScalarProperty Name="Uid" ColumnName="Uid" />
                 <ScalarProperty Name="Resim" ColumnName="Resim" />
@@ -1097,6 +1214,63 @@
                 <ScalarProperty Name="AciklamaEng" ColumnName="AciklamaEng" />
                 <ScalarProperty Name="AciklamaTr" ColumnName="AciklamaTr" />
                 <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStokDurum">
+            <EntityTypeMapping TypeName="ErpPro102SModel.tblStokDurum">
+              <MappingFragment StoreEntitySet="tblStokDurum">
+                <ScalarProperty Name="SKTarih" ColumnName="SKTarih" />
+                <ScalarProperty Name="UTarih" ColumnName="UTarih" />
+                <ScalarProperty Name="Uts" ColumnName="Uts" />
+                <ScalarProperty Name="BransNo" ColumnName="BransNo" />
+                <ScalarProperty Name="SutKodu" ColumnName="SutKodu" />
+                <ScalarProperty Name="UrunHareketAdet" ColumnName="UrunHareketAdet" />
+                <ScalarProperty Name="SubeAdet" ColumnName="SubeAdet" />
+                <ScalarProperty Name="KonsinyeAdet" ColumnName="KonsinyeAdet" />
+                <ScalarProperty Name="RafAdet" ColumnName="RafAdet" />
+                <ScalarProperty Name="StokAdet" ColumnName="StokAdet" />
+                <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUrunGirisAlt">
+            <EntityTypeMapping TypeName="ErpPro102SModel.tblUrunGirisAlt">
+              <MappingFragment StoreEntitySet="tblUrunGirisAlt">
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="SkTarih" ColumnName="SkTarih" />
+                <ScalarProperty Name="UTarih" ColumnName="UTarih" />
+                <ScalarProperty Name="UtsDurum" ColumnName="UtsDurum" />
+                <ScalarProperty Name="BransNo" ColumnName="BransNo" />
+                <ScalarProperty Name="GirisTarih" ColumnName="GirisTarih" />
+                <ScalarProperty Name="GirisAdet" ColumnName="GirisAdet" />
+                <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="GirisId" ColumnName="GirisId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUrunGirisUst">
+            <EntityTypeMapping TypeName="ErpPro102SModel.tblUrunGirisUst">
+              <MappingFragment StoreEntitySet="tblUrunGirisUst">
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="GirisTarih" ColumnName="GirisTarih" />
+                <ScalarProperty Name="FaturaNo" ColumnName="FaturaNo" />
+                <ScalarProperty Name="GirisTuru" ColumnName="GirisTuru" />
+                <ScalarProperty Name="CariId" ColumnName="CariId" />
+                <ScalarProperty Name="CariAdi" ColumnName="CariAdi" />
+                <ScalarProperty Name="CariTip" ColumnName="CariTip" />
+                <ScalarProperty Name="GirisId" ColumnName="GirisId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

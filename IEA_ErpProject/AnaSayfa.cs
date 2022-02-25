@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using IEA_ErpProject.BilgiGiris.Urunler;
+using IEA_ErpProject.UrunGirisIslemleri;
 
 namespace IEA_ErpProject
 {
@@ -73,6 +74,12 @@ namespace IEA_ErpProject
                 tvMenu.Nodes.Add("Ürünler");
                 tvMenu.Nodes[0].Nodes.Add("Ürünler Listesi"); //child 
                 tvMenu.Nodes[0].Nodes.Add("Ürün Bilgi Giriş");
+
+            } else if (info=="stok")
+            {
+                tvMenu.Nodes.Add("Stok");
+                tvMenu.Nodes[0].Nodes.Add("Stok Durum"); //child 
+                //tvMenu.Nodes[0].Nodes.Add("Ürün Bilgi Giriş");
 
             }
 
@@ -154,6 +161,28 @@ namespace IEA_ErpProject
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }
+            else if (isim == "Ürünler Listesi" && Application.OpenForms["UrunlerGirisListesi"] == null)
+            {
+                f.UrunGirisListesiAc();
+            }
+            else if (isim == "Ürün Bilgi Giriş" && Application.OpenForms["UrunGiris"] == null)
+            {
+                UrunGiris frm = new UrunGiris();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Stok Durum" && Application.OpenForms["StokDurum"] == null)
+            {
+                f.StokDurumAc();
+            }
+            
+
+        }
+
+        private void btnStokIslemleri_Click(object sender, EventArgs e)
+        {
+            lblMenu.Text = btnStokIslemleri.Text;
+            MenuOlustur(("stok"));
         }
     }
 }

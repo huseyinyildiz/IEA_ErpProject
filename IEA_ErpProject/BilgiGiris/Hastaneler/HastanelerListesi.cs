@@ -63,11 +63,19 @@ namespace IEA_ErpProject.BilgiGiris.Hastaneler
                 secimId = (int?)Liste.CurrentRow.Cells[1].Value ?? -1;
             }
 
-            if(secimId > 0  && Application.OpenForms["HastaneGiris"] == null)
+            if(secimId > 0 )
             {
-                AnaSayfa.Aktarma = secimId;
-                Close();
-                f.HastaneGirisAc(AnaSayfa.Aktarma);
+                if (  Application.OpenForms["HastaneGiris"] == null && Application.OpenForms["UrunGiris"] == null)
+                {
+                    AnaSayfa.Aktarma = secimId;
+                    Close();
+                    f.HastaneGirisAc(AnaSayfa.Aktarma); 
+                }
+                else if (Application.OpenForms["UrunGiris"] !=null)
+                {
+                    AnaSayfa.Aktarma = secimId;
+                    Close();
+                }
             } 
             else if (Secim && Application.OpenForms["HastaneGiris"] != null)
             {
