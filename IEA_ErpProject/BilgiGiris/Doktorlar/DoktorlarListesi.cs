@@ -73,25 +73,22 @@ namespace IEA_ErpProject.BilgiGiris.Doktorlar
                 secimId = (int?)Liste.CurrentRow.Cells[1].Value ?? -1;
             }
 
-            if (secimId>0)
+            if (secimId > 0 && Secim && Application.OpenForms["DoktorGiris"] == null)
             {
-                if (Application.OpenForms["DoktorGiris"] == null && Application.OpenForms["UrunGiris"]==null)
-                {
-                    AnaSayfa.Aktarma = secimId;
-                    Close();
-                    f.DoktorGirisAc(AnaSayfa.Aktarma);
-                }
-                else if (Application.OpenForms["UrunGiris"]!=null)
-                {
-                    AnaSayfa.Aktarma = secimId;
-                    Close();
-                }
+                AnaSayfa.Aktarma = secimId;
+                Close();
+                //  f.FirmaGirisAc(AnaSayfa.Aktarma);
             }
-
             else if (Secim && Application.OpenForms["DoktorGiris"] != null)
             {
+                //AnaSayfa.Aktarma = secimId;
                 DoktorGiris frm = Application.OpenForms["DoktorGiris"] as DoktorGiris;
                 frm.Ac(secimId);
+                Close();
+            }
+            else if (!Secim)
+            {
+                f.DoktorGirisAc(secimId);
                 Close();
             }
         }

@@ -21,6 +21,7 @@ namespace IEA_ErpProject.Entity
         public Nullable<int> CariId { get; set; }
         public string GirisTuru { get; set; }
         public string FaturaNo { get; set; }
+        public string Aciklama { get; set; }
         public Nullable<System.DateTime> GirisTarih { get; set; }
         public Nullable<bool> isDeleted { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }

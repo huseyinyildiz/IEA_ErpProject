@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlUst = new System.Windows.Forms.Panel();
             this.btnPrint = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,6 +53,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TxtGirisId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pnlListe = new System.Windows.Forms.Panel();
+            this.etiketId = new System.Windows.Forms.Label();
+            this.btnRowsDelete = new System.Windows.Forms.Button();
+            this.BtnAddListeRow = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Barkod = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,12 +68,14 @@
             this.Uts = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.UTarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SKTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Durum = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pnlUst.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcUrunGiris)).BeginInit();
             this.pcUrunGiris.Panel1.SuspendLayout();
             this.pcUrunGiris.Panel2.SuspendLayout();
             this.pcUrunGiris.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
+            this.pnlListe.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlUst
@@ -118,6 +125,7 @@
             this.btnKaydet.Size = new System.Drawing.Size(50, 49);
             this.btnKaydet.TabIndex = 19;
             this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // btnGuncelle
             // 
@@ -128,6 +136,7 @@
             this.btnGuncelle.Size = new System.Drawing.Size(50, 49);
             this.btnGuncelle.TabIndex = 18;
             this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnSil
             // 
@@ -149,6 +158,7 @@
             this.btnKapat.Size = new System.Drawing.Size(50, 49);
             this.btnKapat.TabIndex = 15;
             this.btnKapat.UseVisualStyleBackColor = true;
+            this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
             // 
             // btnTemizle
             // 
@@ -159,6 +169,7 @@
             this.btnTemizle.Size = new System.Drawing.Size(50, 49);
             this.btnTemizle.TabIndex = 16;
             this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
             // pcUrunGiris
             // 
@@ -171,6 +182,7 @@
             // pcUrunGiris.Panel1
             // 
             this.pcUrunGiris.Panel1.Controls.Add(this.Liste);
+            this.pcUrunGiris.Panel1.Controls.Add(this.pnlListe);
             // 
             // pcUrunGiris.Panel2
             // 
@@ -207,15 +219,18 @@
             this.UrunId,
             this.Uts,
             this.UTarih,
-            this.SKTarihi});
+            this.SKTarihi,
+            this.Durum});
             this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Liste.Location = new System.Drawing.Point(0, 0);
+            this.Liste.Location = new System.Drawing.Point(0, 46);
             this.Liste.Name = "Liste";
             this.Liste.RowHeadersVisible = false;
             this.Liste.RowHeadersWidth = 62;
             this.Liste.RowTemplate.Height = 28;
-            this.Liste.Size = new System.Drawing.Size(1238, 718);
+            this.Liste.Size = new System.Drawing.Size(1238, 672);
             this.Liste.TabIndex = 0;
+            this.Liste.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Liste_CellEndEdit);
+            this.Liste.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.Liste_EditingControlShowing);
             // 
             // TxtAciklama
             // 
@@ -286,6 +301,9 @@
             // 
             this.TxtGirisTuru.Dock = System.Windows.Forms.DockStyle.Top;
             this.TxtGirisTuru.FormattingEnabled = true;
+            this.TxtGirisTuru.Items.AddRange(new object[] {
+            "Normal Giris",
+            "Muhtelif Giris"});
             this.TxtGirisTuru.Location = new System.Drawing.Point(0, 261);
             this.TxtGirisTuru.Name = "TxtGirisTuru";
             this.TxtGirisTuru.Size = new System.Drawing.Size(375, 28);
@@ -376,6 +394,50 @@
             this.label2.Text = "Giriş No";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pnlListe
+            // 
+            this.pnlListe.BackColor = System.Drawing.Color.IndianRed;
+            this.pnlListe.Controls.Add(this.etiketId);
+            this.pnlListe.Controls.Add(this.btnRowsDelete);
+            this.pnlListe.Controls.Add(this.BtnAddListeRow);
+            this.pnlListe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlListe.Location = new System.Drawing.Point(0, 0);
+            this.pnlListe.Name = "pnlListe";
+            this.pnlListe.Size = new System.Drawing.Size(1238, 46);
+            this.pnlListe.TabIndex = 2;
+            // 
+            // etiketId
+            // 
+            this.etiketId.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.etiketId.Location = new System.Drawing.Point(510, 7);
+            this.etiketId.Name = "etiketId";
+            this.etiketId.Size = new System.Drawing.Size(88, 33);
+            this.etiketId.TabIndex = 22;
+            this.etiketId.Text = "***";
+            this.etiketId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnRowsDelete
+            // 
+            this.btnRowsDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRowsDelete.Location = new System.Drawing.Point(1067, 7);
+            this.btnRowsDelete.Name = "btnRowsDelete";
+            this.btnRowsDelete.Size = new System.Drawing.Size(88, 33);
+            this.btnRowsDelete.TabIndex = 1;
+            this.btnRowsDelete.Text = "Satır Sil";
+            this.btnRowsDelete.UseVisualStyleBackColor = true;
+            // 
+            // BtnAddListeRow
+            // 
+            this.BtnAddListeRow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnAddListeRow.BackgroundImage = global::IEA_ErpProject.Properties.Resources.plus;
+            this.BtnAddListeRow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnAddListeRow.Location = new System.Drawing.Point(1161, 3);
+            this.BtnAddListeRow.Name = "BtnAddListeRow";
+            this.BtnAddListeRow.Size = new System.Drawing.Size(50, 37);
+            this.BtnAddListeRow.TabIndex = 0;
+            this.BtnAddListeRow.UseVisualStyleBackColor = true;
+            this.BtnAddListeRow.Click += new System.EventHandler(this.BtnAddListeRow_Click);
+            // 
             // Id
             // 
             this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -383,7 +445,7 @@
             this.Id.MinimumWidth = 8;
             this.Id.Name = "Id";
             this.Id.Visible = false;
-            this.Id.Width = 59;
+            this.Id.Width = 29;
             // 
             // Sira
             // 
@@ -428,6 +490,8 @@
             // Not
             // 
             this.Not.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle1.NullValue = " ";
+            this.Not.DefaultCellStyle = dataGridViewCellStyle1;
             this.Not.HeaderText = "Not";
             this.Not.MinimumWidth = 8;
             this.Not.Name = "Not";
@@ -445,11 +509,13 @@
             // Uts
             // 
             this.Uts.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Uts.FalseValue = "False";
             this.Uts.HeaderText = "UTS";
             this.Uts.MinimumWidth = 8;
             this.Uts.Name = "Uts";
             this.Uts.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Uts.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Uts.TrueValue = "True";
             this.Uts.Width = 77;
             // 
             // UTarih
@@ -467,6 +533,14 @@
             this.SKTarihi.MinimumWidth = 8;
             this.SKTarihi.Name = "SKTarihi";
             this.SKTarihi.Width = 75;
+            // 
+            // Durum
+            // 
+            this.Durum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Durum.HeaderText = "Durum";
+            this.Durum.MinimumWidth = 8;
+            this.Durum.Name = "Durum";
+            this.Durum.Width = 63;
             // 
             // UrunGiris
             // 
@@ -486,6 +560,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcUrunGiris)).EndInit();
             this.pcUrunGiris.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
+            this.pnlListe.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -516,6 +591,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtGirisId;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel pnlListe;
+        private System.Windows.Forms.Label etiketId;
+        private System.Windows.Forms.Button btnRowsDelete;
+        private System.Windows.Forms.Button BtnAddListeRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sira;
         private System.Windows.Forms.DataGridViewTextBoxColumn Barkod;
@@ -527,5 +606,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Uts;
         private System.Windows.Forms.DataGridViewTextBoxColumn UTarih;
         private System.Windows.Forms.DataGridViewTextBoxColumn SKTarihi;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Durum;
     }
 }

@@ -27,5 +27,21 @@ namespace IEA_ErpProject.Fonksiyonlar
                 return "0000001";
             }
         }
+
+        public string UGirisNo()
+        {
+            try
+            {
+                var numara = (from s in _db.tblUrunGirisUst orderby s.Id descending select s).First().GirisId;
+                numara++;
+                //string num = numara.ToString().PadLeft(7, '0');
+                return numara.ToString().PadLeft(7,'0');
+
+            }
+            catch (Exception e)
+            {
+                return "0000001";
+            }
+        }
     }
 }

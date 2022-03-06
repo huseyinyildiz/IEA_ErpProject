@@ -174,6 +174,7 @@
           <Property Name="CariId" Type="int" />
           <Property Name="GirisTuru" Type="nvarchar" MaxLength="20" />
           <Property Name="FaturaNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="350" />
           <Property Name="GirisTarih" Type="date" />
           <Property Name="isDeleted" Type="bit" />
           <Property Name="CreatedDate" Type="date" />
@@ -1010,6 +1011,7 @@
           <Property Name="CariId" Type="Int32" />
           <Property Name="GirisTuru" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="FaturaNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
           <Property Name="GirisTarih" Type="DateTime" Precision="0" />
           <Property Name="isDeleted" Type="Boolean" />
           <Property Name="CreatedDate" Type="DateTime" Precision="0" />
@@ -1265,6 +1267,7 @@
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="GirisTarih" ColumnName="GirisTarih" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
                 <ScalarProperty Name="FaturaNo" ColumnName="FaturaNo" />
                 <ScalarProperty Name="GirisTuru" ColumnName="GirisTuru" />
                 <ScalarProperty Name="CariId" ColumnName="CariId" />
