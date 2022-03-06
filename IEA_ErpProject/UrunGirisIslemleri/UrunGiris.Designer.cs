@@ -39,6 +39,10 @@
             this.btnTemizle = new System.Windows.Forms.Button();
             this.pcUrunGiris = new System.Windows.Forms.SplitContainer();
             this.Liste = new System.Windows.Forms.DataGridView();
+            this.pnlListe = new System.Windows.Forms.Panel();
+            this.etiketId = new System.Windows.Forms.Label();
+            this.btnRowsDelete = new System.Windows.Forms.Button();
+            this.BtnAddListeRow = new System.Windows.Forms.Button();
             this.TxtAciklama = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.TxtGirisTarih = new System.Windows.Forms.DateTimePicker();
@@ -53,10 +57,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TxtGirisId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.pnlListe = new System.Windows.Forms.Panel();
-            this.etiketId = new System.Windows.Forms.Label();
-            this.btnRowsDelete = new System.Windows.Forms.Button();
-            this.BtnAddListeRow = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Barkod = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -232,6 +232,50 @@
             this.Liste.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Liste_CellEndEdit);
             this.Liste.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.Liste_EditingControlShowing);
             // 
+            // pnlListe
+            // 
+            this.pnlListe.BackColor = System.Drawing.Color.IndianRed;
+            this.pnlListe.Controls.Add(this.etiketId);
+            this.pnlListe.Controls.Add(this.btnRowsDelete);
+            this.pnlListe.Controls.Add(this.BtnAddListeRow);
+            this.pnlListe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlListe.Location = new System.Drawing.Point(0, 0);
+            this.pnlListe.Name = "pnlListe";
+            this.pnlListe.Size = new System.Drawing.Size(1238, 46);
+            this.pnlListe.TabIndex = 2;
+            // 
+            // etiketId
+            // 
+            this.etiketId.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.etiketId.Location = new System.Drawing.Point(510, 7);
+            this.etiketId.Name = "etiketId";
+            this.etiketId.Size = new System.Drawing.Size(88, 33);
+            this.etiketId.TabIndex = 22;
+            this.etiketId.Text = "***";
+            this.etiketId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnRowsDelete
+            // 
+            this.btnRowsDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRowsDelete.Location = new System.Drawing.Point(1067, 7);
+            this.btnRowsDelete.Name = "btnRowsDelete";
+            this.btnRowsDelete.Size = new System.Drawing.Size(88, 33);
+            this.btnRowsDelete.TabIndex = 1;
+            this.btnRowsDelete.Text = "Satır Sil";
+            this.btnRowsDelete.UseVisualStyleBackColor = true;
+            // 
+            // BtnAddListeRow
+            // 
+            this.BtnAddListeRow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnAddListeRow.BackgroundImage = global::IEA_ErpProject.Properties.Resources.plus;
+            this.BtnAddListeRow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnAddListeRow.Location = new System.Drawing.Point(1161, 3);
+            this.BtnAddListeRow.Name = "BtnAddListeRow";
+            this.BtnAddListeRow.Size = new System.Drawing.Size(50, 37);
+            this.BtnAddListeRow.TabIndex = 0;
+            this.BtnAddListeRow.UseVisualStyleBackColor = true;
+            this.BtnAddListeRow.Click += new System.EventHandler(this.BtnAddListeRow_Click);
+            // 
             // TxtAciklama
             // 
             this.TxtAciklama.Dock = System.Windows.Forms.DockStyle.Top;
@@ -394,50 +438,6 @@
             this.label2.Text = "Giriş No";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlListe
-            // 
-            this.pnlListe.BackColor = System.Drawing.Color.IndianRed;
-            this.pnlListe.Controls.Add(this.etiketId);
-            this.pnlListe.Controls.Add(this.btnRowsDelete);
-            this.pnlListe.Controls.Add(this.BtnAddListeRow);
-            this.pnlListe.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlListe.Location = new System.Drawing.Point(0, 0);
-            this.pnlListe.Name = "pnlListe";
-            this.pnlListe.Size = new System.Drawing.Size(1238, 46);
-            this.pnlListe.TabIndex = 2;
-            // 
-            // etiketId
-            // 
-            this.etiketId.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.etiketId.Location = new System.Drawing.Point(510, 7);
-            this.etiketId.Name = "etiketId";
-            this.etiketId.Size = new System.Drawing.Size(88, 33);
-            this.etiketId.TabIndex = 22;
-            this.etiketId.Text = "***";
-            this.etiketId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnRowsDelete
-            // 
-            this.btnRowsDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRowsDelete.Location = new System.Drawing.Point(1067, 7);
-            this.btnRowsDelete.Name = "btnRowsDelete";
-            this.btnRowsDelete.Size = new System.Drawing.Size(88, 33);
-            this.btnRowsDelete.TabIndex = 1;
-            this.btnRowsDelete.Text = "Satır Sil";
-            this.btnRowsDelete.UseVisualStyleBackColor = true;
-            // 
-            // BtnAddListeRow
-            // 
-            this.BtnAddListeRow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnAddListeRow.BackgroundImage = global::IEA_ErpProject.Properties.Resources.plus;
-            this.BtnAddListeRow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnAddListeRow.Location = new System.Drawing.Point(1161, 3);
-            this.BtnAddListeRow.Name = "BtnAddListeRow";
-            this.BtnAddListeRow.Size = new System.Drawing.Size(50, 37);
-            this.BtnAddListeRow.TabIndex = 0;
-            this.BtnAddListeRow.UseVisualStyleBackColor = true;
-            this.BtnAddListeRow.Click += new System.EventHandler(this.BtnAddListeRow_Click);
-            // 
             // Id
             // 
             this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -461,7 +461,6 @@
             this.Barkod.HeaderText = "Barkod";
             this.Barkod.MinimumWidth = 8;
             this.Barkod.Name = "Barkod";
-            this.Barkod.Visible = false;
             this.Barkod.Width = 96;
             // 
             // UrunKodu
@@ -503,7 +502,6 @@
             this.UrunId.HeaderText = "UrunId";
             this.UrunId.MinimumWidth = 8;
             this.UrunId.Name = "UrunId";
-            this.UrunId.Visible = false;
             this.UrunId.Width = 94;
             // 
             // Uts

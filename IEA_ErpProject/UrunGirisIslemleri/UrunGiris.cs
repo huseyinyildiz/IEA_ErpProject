@@ -392,9 +392,6 @@ namespace IEA_ErpProject.UrunGirisIslemleri
                 Liste.Rows.Add();
                 Liste.Rows[i].Cells[1].Value = i + 1;
                 Liste.Rows[i].Cells[0].Value = altList[i].Id;
-                Liste.Rows[i].Cells[2].Value = altList[i].Barkod;
-                Liste.Rows[i].Cells[3].Value = altList[i].UrunKodu;
-                Liste.Rows[i].Cells[4].Value = altList[i].LotSeriNo;
                 Liste.Rows[i].Cells[5].Value = altList[i].GirisAdet;
                 Liste.Rows[i].Cells[6].Value = altList[i].Aciklama;
                 Liste.Rows[i].Cells[7].Value = altList[i].GirisId;
@@ -402,6 +399,25 @@ namespace IEA_ErpProject.UrunGirisIslemleri
                 Liste.Rows[i].Cells[9].Value = altList[i].UTarih;
                 Liste.Rows[i].Cells[10].Value = altList[i].SkTarih;
                 Liste.Rows[i].Cells[11].Value = false;
+
+                DataGridViewCell dgv = Liste.Rows[i].Cells[2];
+                if (dgv != null)
+                {
+                    dgv.Value = altList[i].Barkod;
+                    dgv.ReadOnly = true;
+                }
+                DataGridViewCell dgv1 = Liste.Rows[i].Cells[4];
+                if (dgv1 != null)
+                {
+                    dgv1.Value = altList[i].LotSeriNo;
+                    dgv1.ReadOnly = true;
+                }
+                DataGridViewCell dgv2 = Liste.Rows[i].Cells[3];
+                if (dgv2 != null)
+                {
+                    dgv2.Value = altList[i].UrunKodu;
+                    dgv2.ReadOnly = true;
+                }
             }
         }
 
@@ -412,12 +428,15 @@ namespace IEA_ErpProject.UrunGirisIslemleri
 
         private void Guncelle()
         {
-            if (girisId==-1)
+            int a = Convert.ToInt32(TxtGirisId.Text);
+            Liste.AllowUserToAddRows = false;
+            if (a == -1)
             {
-                MessageBox.Show("Güncelleme için bir kayıt seçin");
+                MessageBox.Show("Guncelleme icin bir kayit secin...");
                 return;
             }
-            var srg = _db.tblUrunGirisUst.FirstOrDefault(x => x.GirisId == girisId);
+            
+            var srg = _db.tblUrunGirisUst.FirstOrDefault(x => x.GirisId == a);
 
             srg.GirisId = int.Parse(TxtGirisId.Text);
             srg.CariTip = TxtCariTur.Text;
@@ -429,42 +448,67 @@ namespace IEA_ErpProject.UrunGirisIslemleri
 
             _db.SaveChanges();
 
-            var lst = (from s in _db.tblUrunGirisAlt
-                where s.GirisId == girisId
-                select s).ToList();
-
-            for (int i = 0; i < Liste.RowCount; i++)
+            List<tblUrunGirisAlt> alt = _db.tblUrunGirisAlt.Where(x => x.GirisId == a).ToList();
+            int i = 0;
+            foreach (var item in alt)
             {
-                if ((bool)Liste.Rows[i].Cells[11].Value == false)
+                if ((bool)Liste.Rows[i].Cells[11].Value!=true)
                 {
-                    string newBarkod = Liste.Rows[i].Cells[3].Value.ToString() +"/"+ Liste.Rows[i].Cells[4].Value.ToString();
+                    string newBarkod = Liste.Rows[i].Cells[3].Value.ToString() + "/" + Liste.Rows[i].Cells[4].Value.ToString();
                     string brk = Liste.Rows[i].Cells[2].Value.ToString();
-                    var stk = _db.tblStokDurum.FirstOrDefault(s => s.Barkod ==brk );
+                    var stk = _db.tblStokDurum.FirstOrDefault(s => s.Barkod == brk);
+
                     stk.Barkod = newBarkod;
                     stk.UrunKodu = Liste.Rows[i].Cells[3].Value.ToString();
                     stk.LotSeriNo = Liste.Rows[i].Cells[4].Value.ToString();
                     var adet = altList[i].GirisAdet - Convert.ToInt32(Liste.Rows[i].Cells[5].Value);
+                    // 100  - 80 = +20
+                    // 100 - 120 = -20
 
                     stk.StokAdet -= adet;
                     stk.RafAdet -= adet;
+
                     
-                    lst[i].Barkod = newBarkod;
-                    lst[i].UrunKodu = Liste.Rows[i].Cells[3].Value.ToString();
-                    lst[i].LotSeriNo = Liste.Rows[i].Cells[4].Value.ToString();
-                    lst[i].GirisAdet = Convert.ToInt32(Liste.Rows[i].Cells[5].Value);
-                    lst[i].GirisTarih = TxtGirisTarih.Value;
-                    lst[i].BransNo = "";
-                    lst[i].UtsDurum = Convert.ToBoolean(Liste.Rows[i].Cells[8].Value);
-                    lst[i].UTarih = Convert.ToDateTime(Liste.Rows[i].Cells[9].Value);
-                    lst[i].SkTarih = Convert.ToDateTime(Liste.Rows[i].Cells[10].Value);
-                    lst[i].Aciklama = Liste.Rows[i].Cells[6].Value.ToString();
-                    _db.SaveChanges();
-                }
-                else
-                {
-                    
+
+                    item.Barkod = newBarkod;
+                    item.UrunKodu = Liste.Rows[i].Cells[3].Value.ToString();
+                    item.LotSeriNo = Liste.Rows[i].Cells[4].Value.ToString();
+                    item.GirisAdet = Convert.ToInt32(Liste.Rows[i].Cells[5].Value);
+                    item.Aciklama = Liste.Rows[i].Cells[6].Value.ToString();
+                    item.GirisTarih = TxtGirisTarih.Value;
+                    item.BransNo = "";
+                    item.UtsDurum = Convert.ToBoolean(Liste.Rows[i].Cells[8].Value);
+                    item.UTarih = Convert.ToDateTime(Liste.Rows[i].Cells[9].Value);
+                    item.SkTarih = Convert.ToDateTime(Liste.Rows[i].Cells[10].Value);
+                    item.GirisId = int.Parse(TxtGirisId.Text);
+                    i++;
+
                 }
             }
+            tblUrunGirisAlt[] yeni = new tblUrunGirisAlt[Liste.RowCount].ToArray();
+            for (int j = 0; j < Liste.RowCount; j++)
+            {
+                if ((bool)Liste.Rows[j].Cells[11].Value == true)
+                {
+                    yeni[j] = new tblUrunGirisAlt();
+                    string newBarkod = Liste.Rows[j].Cells[3].Value.ToString() + "/" + Liste.Rows[i].Cells[4].Value.ToString();
+                    yeni[j].Barkod = newBarkod;
+                    yeni[j].UrunKodu = Liste.Rows[j].Cells[3].Value.ToString();
+                    yeni[j].LotSeriNo = Liste.Rows[j].Cells[4].Value.ToString();
+                    yeni[j].GirisAdet = Convert.ToInt32(Liste.Rows[j].Cells[5].Value);
+                    yeni[j].Aciklama = Liste.Rows[j].Cells[6].Value.ToString();
+                    yeni[j].GirisTarih = TxtGirisTarih.Value;
+                    yeni[j].BransNo = "";
+                    yeni[j].UtsDurum = Convert.ToBoolean(Liste.Rows[j].Cells[8].Value);
+                    yeni[j].UTarih = Convert.ToDateTime(Liste.Rows[j].Cells[9].Value);
+                    yeni[j].SkTarih = Convert.ToDateTime(Liste.Rows[j].Cells[10].Value);
+                    yeni[j].GirisId = int.Parse(TxtGirisId.Text);
+                    _db.tblUrunGirisAlt.Add(yeni[j]);
+                }
+            }
+            _db.SaveChanges();
+            MessageBox.Show("Güncelleme başarılı");
+
         }
 
         private void BtnAddListeRow_Click(object sender, EventArgs e)

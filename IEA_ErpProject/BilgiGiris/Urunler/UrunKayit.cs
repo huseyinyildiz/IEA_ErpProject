@@ -287,7 +287,7 @@ namespace IEA_ErpProject.BilgiGiris.Urunler
             {
                 if ((bool)Liste.Rows[ii].Cells[9].Value != true)
                 {
-                    int indexId = alt[ii].Id;
+                   // int indexId = alt[ii].Id;
                     //alt[ii] = _db.tblUrunKayitAlt.FirstOrDefault(s => s.Id == indexId);
                     uAlt.Aciklama = txtAcıklamaTr.Text;
                     uAlt.BirimFiyat = Convert.ToDecimal(TxtBirimFiyat.Text);
