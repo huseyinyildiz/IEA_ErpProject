@@ -594,9 +594,9 @@
             <End Role="tblFirmalar" EntitySet="tblFirmalar" />
             <End Role="tblUrunKayitUst" EntitySet="tblUrunKayitUst" />
           </AssociationSet>
-          <EntitySet Name="tblStokDurum" EntityType="ErpPro102SModel.tblStokDurum" />
           <EntitySet Name="tblUrunGirisAlt" EntityType="ErpPro102SModel.tblUrunGirisAlt" />
           <EntitySet Name="tblUrunGirisUst" EntityType="ErpPro102SModel.tblUrunGirisUst" />
+          <EntitySet Name="tblStokDurum" EntityType="ErpPro102SModel.tblStokDurum" />
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -964,25 +964,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="tblStokDurum">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Barkod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="UrunKodu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="LotSeriNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StokAdet" Type="Int32" />
-          <Property Name="RafAdet" Type="Int32" />
-          <Property Name="KonsinyeAdet" Type="Int32" />
-          <Property Name="SubeAdet" Type="Int32" />
-          <Property Name="UrunHareketAdet" Type="Int32" />
-          <Property Name="SutKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BransNo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Uts" Type="Boolean" />
-          <Property Name="UTarih" Type="DateTime" Precision="0" />
-          <Property Name="SKTarih" Type="DateTime" Precision="0" />
-        </EntityType>
         <EntityType Name="tblUrunGirisAlt">
           <Key>
             <PropertyRef Name="Id" />
@@ -1018,6 +999,25 @@
           <Property Name="CreatedUser" Type="Int32" />
           <Property Name="UpdateDate" Type="DateTime" Precision="0" />
           <Property Name="UpdateUser" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblStokDurum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Barkod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UrunKodu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LotSeriNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokAdet" Type="Int32" />
+          <Property Name="RafAdet" Type="Int32" />
+          <Property Name="KonsinyeAdet" Type="Int32" />
+          <Property Name="SubeAdet" Type="Int32" />
+          <Property Name="UrunHareketAdet" Type="Int32" />
+          <Property Name="SutKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BransNo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Uts" Type="Boolean" />
+          <Property Name="UTarih" Type="DateTime" Precision="0" />
+          <Property Name="SKTarih" Type="DateTime" Precision="0" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1220,26 +1220,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblStokDurum">
-            <EntityTypeMapping TypeName="ErpPro102SModel.tblStokDurum">
-              <MappingFragment StoreEntitySet="tblStokDurum">
-                <ScalarProperty Name="SKTarih" ColumnName="SKTarih" />
-                <ScalarProperty Name="UTarih" ColumnName="UTarih" />
-                <ScalarProperty Name="Uts" ColumnName="Uts" />
-                <ScalarProperty Name="BransNo" ColumnName="BransNo" />
-                <ScalarProperty Name="SutKodu" ColumnName="SutKodu" />
-                <ScalarProperty Name="UrunHareketAdet" ColumnName="UrunHareketAdet" />
-                <ScalarProperty Name="SubeAdet" ColumnName="SubeAdet" />
-                <ScalarProperty Name="KonsinyeAdet" ColumnName="KonsinyeAdet" />
-                <ScalarProperty Name="RafAdet" ColumnName="RafAdet" />
-                <ScalarProperty Name="StokAdet" ColumnName="StokAdet" />
-                <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
-                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
-                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tblUrunGirisAlt">
             <EntityTypeMapping TypeName="ErpPro102SModel.tblUrunGirisAlt">
               <MappingFragment StoreEntitySet="tblUrunGirisAlt">
@@ -1274,6 +1254,26 @@
                 <ScalarProperty Name="CariAdi" ColumnName="CariAdi" />
                 <ScalarProperty Name="CariTip" ColumnName="CariTip" />
                 <ScalarProperty Name="GirisId" ColumnName="GirisId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStokDurum">
+            <EntityTypeMapping TypeName="ErpPro102SModel.tblStokDurum">
+              <MappingFragment StoreEntitySet="tblStokDurum">
+                <ScalarProperty Name="SKTarih" ColumnName="SKTarih" />
+                <ScalarProperty Name="UTarih" ColumnName="UTarih" />
+                <ScalarProperty Name="Uts" ColumnName="Uts" />
+                <ScalarProperty Name="BransNo" ColumnName="BransNo" />
+                <ScalarProperty Name="SutKodu" ColumnName="SutKodu" />
+                <ScalarProperty Name="UrunHareketAdet" ColumnName="UrunHareketAdet" />
+                <ScalarProperty Name="SubeAdet" ColumnName="SubeAdet" />
+                <ScalarProperty Name="KonsinyeAdet" ColumnName="KonsinyeAdet" />
+                <ScalarProperty Name="RafAdet" ColumnName="RafAdet" />
+                <ScalarProperty Name="StokAdet" ColumnName="StokAdet" />
+                <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

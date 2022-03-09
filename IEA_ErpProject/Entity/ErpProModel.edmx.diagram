@@ -31,9 +31,9 @@
         <EntityTypeShape EntityType="ErpPro102SModel.tblUrunKayitAlt" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="ErpPro102SModel.tblUrunKayitUst" Width="1.5" PointX="5.25" PointY="23.25" />
         <AssociationConnector Association="ErpPro102SModel.FK_tblUrunKayitUst_tblFirmalar" />
-        <EntityTypeShape EntityType="ErpPro102SModel.tblStokDurum" Width="1.5" PointX="7.375" PointY="0.75" />
         <EntityTypeShape EntityType="ErpPro102SModel.tblUrunGirisAlt" Width="1.5" PointX="9.375" PointY="0.75" />
         <EntityTypeShape EntityType="ErpPro102SModel.tblUrunGirisUst" Width="1.5" PointX="10.375" PointY="5.75" />
+        <EntityTypeShape EntityType="ErpPro102SModel.tblStokDurum" Width="1.5" PointX="7.75" PointY="12.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

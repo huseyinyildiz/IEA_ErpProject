@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using IEA_ErpProject.BilgiGiris.Urunler;
+using IEA_ErpProject.Giris;
 using IEA_ErpProject.UrunGirisIslemleri;
 
 namespace IEA_ErpProject
@@ -183,6 +184,33 @@ namespace IEA_ErpProject
         {
             lblMenu.Text = btnStokIslemleri.Text;
             MenuOlustur(("stok"));
+        }
+
+        private void Cikis()
+        {
+            DialogResult dr = MessageBox.Show("Programdan çıkış yapmak üzeresiniz!! \n Çıkış yapmak istiyor musunuz?","cıkıs islemi",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            if (dr==DialogResult.Yes)
+            {
+                Application.ExitThread();
+            }
+            else
+            {
+                GirisEkrani giris = new GirisEkrani();
+                giris.Visible = true;
+
+            }
+        }
+
+        private void AnaSayfa_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Cikis();
+
+        }
+
+        private void btnSolUstCollapse_Click(object sender, EventArgs e)
+        {
+            //500
+            pnlSol.Width = pnlSol.Size.Width > 400 ? 100 : 500;
         }
     }
 }
