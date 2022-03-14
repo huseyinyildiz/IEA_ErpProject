@@ -83,6 +83,17 @@ namespace IEA_ErpProject
                 //tvMenu.Nodes[0].Nodes.Add("Ürün Bilgi Giriş");
 
             }
+            else if (info == "konsinye")
+            {
+                tvMenu.Nodes.Add("Konsinye");
+                tvMenu.Nodes[0].Nodes.Add("Gonderim");
+                tvMenu.Nodes[0].Nodes[0].Nodes.Add("Konsiye Gönderim");
+                tvMenu.Nodes[0].Nodes[0].Nodes.Add("Konsiye Gönderim Listesi");
+                tvMenu.Nodes[0].Nodes.Add("Cikis");
+                tvMenu.Nodes[0].Nodes[1].Nodes.Add("Konsiye Çıkış");
+                tvMenu.Nodes[0].Nodes[1].Nodes.Add("Konsiye Çıkış Listesi");
+
+            }
 
         }
 
@@ -176,7 +187,11 @@ namespace IEA_ErpProject
             {
                 f.StokDurumAc();
             }
-            
+            else if (isim == "Konsiye Gönderim" && Application.OpenForms["KonsinyeGonderim"] == null)
+            {
+                f.KonsinyeGonderimAc();
+            }
+
 
         }
 
@@ -211,6 +226,12 @@ namespace IEA_ErpProject
         {
             //500
             pnlSol.Width = pnlSol.Size.Width > 400 ? 100 : 500;
+        }
+
+        private void btnKonsinye_Click(object sender, EventArgs e)
+        {
+            lblMenu.Text = btnKonsinye.Text;
+            MenuOlustur(("konsinye"));
         }
     }
 }

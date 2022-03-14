@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IEA_ErpProject.Entity.Code;
 using IEA_ErpProject.Giris;
+using IEA_ErpProject.KonsinyeIslemleri.Giris;
 
 namespace IEA_ErpProject
 {

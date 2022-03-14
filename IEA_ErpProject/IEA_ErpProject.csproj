@@ -255,6 +255,12 @@
     <Compile Include="KonsinyeIslemleri\Gonderim\KonsinyeGonderimListesi.Designer.cs">
       <DependentUpon>KonsinyeGonderimListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="KonsinyeIslemleri\LotBul.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KonsinyeIslemleri\LotBul.Designer.cs">
+      <DependentUpon>LotBul.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202203090603351_AllInit.cs" />
     <Compile Include="Migrations\202203090603351_AllInit.designer.cs">
       <DependentUpon>202203090603351_AllInit.cs</DependentUpon>
@@ -330,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KonsinyeIslemleri\Gonderim\KonsinyeGonderim.resx">
       <DependentUpon>KonsinyeGonderim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KonsinyeIslemleri\LotBul.resx">
+      <DependentUpon>LotBul.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203090603351_AllInit.resx">
       <DependentUpon>202203090603351_AllInit.cs</DependentUpon>

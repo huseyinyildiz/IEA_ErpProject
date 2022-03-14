@@ -1,6 +1,6 @@
 ﻿namespace IEA_ErpProject.KonsinyeIslemleri.Giris
 {
-    partial class KonsinyeGiris
+    partial class KonsinyeGonderim
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlListe = new System.Windows.Forms.Panel();
             this.etiketId = new System.Windows.Forms.Label();
             this.btnRowsDelete = new System.Windows.Forms.Button();
             this.TxtKonGonderimAciklama = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.TxtKonGonderimAcıklama = new System.Windows.Forms.DateTimePicker();
+            this.TxtGonderimTarih = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtKonGonderimTur = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -131,14 +131,14 @@
             this.label8.Text = "Açıklama";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TxtKonGonderimAcıklama
+            // TxtGonderimTarih
             // 
-            this.TxtKonGonderimAcıklama.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TxtKonGonderimAcıklama.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.TxtKonGonderimAcıklama.Location = new System.Drawing.Point(0, 321);
-            this.TxtKonGonderimAcıklama.Name = "TxtKonGonderimAcıklama";
-            this.TxtKonGonderimAcıklama.Size = new System.Drawing.Size(375, 26);
-            this.TxtKonGonderimAcıklama.TabIndex = 32;
+            this.TxtGonderimTarih.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TxtGonderimTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.TxtGonderimTarih.Location = new System.Drawing.Point(0, 321);
+            this.TxtGonderimTarih.Name = "TxtGonderimTarih";
+            this.TxtGonderimTarih.Size = new System.Drawing.Size(375, 26);
+            this.TxtGonderimTarih.TabIndex = 32;
             // 
             // label7
             // 
@@ -266,6 +266,9 @@
             this.Liste.RowTemplate.Height = 28;
             this.Liste.Size = new System.Drawing.Size(1221, 737);
             this.Liste.TabIndex = 0;
+            this.Liste.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Liste_CellEnter);
+            this.Liste.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.Liste_EditingControlShowing);
+            this.Liste.SelectionChanged += new System.EventHandler(this.Liste_SelectionChanged);
             // 
             // label1
             // 
@@ -305,7 +308,7 @@
             this.pcUrunGiris.Panel2.BackColor = System.Drawing.Color.IndianRed;
             this.pcUrunGiris.Panel2.Controls.Add(this.TxtKonGonderimAciklama);
             this.pcUrunGiris.Panel2.Controls.Add(this.label8);
-            this.pcUrunGiris.Panel2.Controls.Add(this.TxtKonGonderimAcıklama);
+            this.pcUrunGiris.Panel2.Controls.Add(this.TxtGonderimTarih);
             this.pcUrunGiris.Panel2.Controls.Add(this.label7);
             this.pcUrunGiris.Panel2.Controls.Add(this.TxtKonGonderimTur);
             this.pcUrunGiris.Panel2.Controls.Add(this.label5);
@@ -359,8 +362,7 @@
             this.Barkod.HeaderText = "Barkod";
             this.Barkod.MinimumWidth = 8;
             this.Barkod.Name = "Barkod";
-            this.Barkod.Visible = false;
-            this.Barkod.Width = 66;
+            this.Barkod.Width = 96;
             // 
             // UrunKodu
             // 
@@ -396,8 +398,8 @@
             // Not
             // 
             this.Not.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle1.NullValue = " ";
-            this.Not.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.NullValue = " ";
+            this.Not.DefaultCellStyle = dataGridViewCellStyle4;
             this.Not.HeaderText = "Not";
             this.Not.MinimumWidth = 8;
             this.Not.Name = "Not";
@@ -522,15 +524,16 @@
             this.btnTemizle.TabIndex = 16;
             this.btnTemizle.UseVisualStyleBackColor = true;
             // 
-            // KonsinyeGiris
+            // KonsinyeGonderim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1608, 861);
             this.Controls.Add(this.pcUrunGiris);
             this.Controls.Add(this.pnlUst);
-            this.Name = "KonsinyeGiris";
+            this.Name = "KonsinyeGonderim";
             this.Text = "KonsinyeGiris";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.KonsinyeGiris_Load);
             this.pnlListe.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
@@ -551,7 +554,7 @@
         private System.Windows.Forms.Button BtnAddListeRow;
         private System.Windows.Forms.TextBox TxtKonGonderimAciklama;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker TxtKonGonderimAcıklama;
+        private System.Windows.Forms.DateTimePicker TxtGonderimTarih;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox TxtKonGonderimTur;
         private System.Windows.Forms.Label label5;
@@ -560,7 +563,6 @@
         private System.Windows.Forms.ComboBox TxtCariTur;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView Liste;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnKaydet;
@@ -584,5 +586,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UTarih;
         private System.Windows.Forms.DataGridViewTextBoxColumn SKTarihi;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Durum;
+        public System.Windows.Forms.DataGridView Liste;
     }
 }
